@@ -12,16 +12,10 @@ namespace InitiativeTracker
         public int Initiative { get; set; } = initiative;
         public int SuccessesNeeded { get; set; } = 1;
 
-        public bool IsAlive { get; set; } = true;
 
         public void UseAction()
         {
             SuccessesNeeded++;
-        }
-
-        public void Faint()
-        {
-            IsAlive = false;
         }
         
     }
