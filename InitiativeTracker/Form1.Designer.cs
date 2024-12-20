@@ -99,6 +99,7 @@
             btn_UseAction.TabIndex = 6;
             btn_UseAction.Text = "Use Action";
             btn_UseAction.UseVisualStyleBackColor = false;
+            btn_UseAction.Click += btn_UseAction_Click;
             // 
             // button1
             // 

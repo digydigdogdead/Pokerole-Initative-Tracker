@@ -29,8 +29,8 @@ namespace InitiativeTracker
         {
             lstvw_InitTracker.Items.Clear();
             DataHandling.ActivePokemon = (from pokemon in DataHandling.ActivePokemon
-                                      orderby pokemon.Initiative descending
-                                      select pokemon).ToList();
+                                          orderby pokemon.Initiative descending
+                                          select pokemon).ToList();
 
             foreach (Pokemon pokemon in DataHandling.ActivePokemon)
             {
@@ -45,9 +45,16 @@ namespace InitiativeTracker
 
         private void btn_NewRound_Click(object sender, EventArgs e)
         {
+            if (DataHandling.ActivePokemon.Count == 0) return;
             DataHandling.NewRound();
             lbl_RoundCount.Text = DataHandling.Round.ToString();
             lbl_Turn.Text = $"It's {DataHandling.CurrentPokemon.Name}'s Turn!";
+        }
+
+        private void btn_UseAction_Click(object sender, EventArgs e)
+        {
+            DataHandling.UseAction();
+            UpdateTracker();
         }
     }
 }

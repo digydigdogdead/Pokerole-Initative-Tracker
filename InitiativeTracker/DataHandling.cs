@@ -44,6 +44,9 @@ namespace InitiativeTracker
             ActivePokemon.Remove(pokemonToFaint);
         }
 
-
+        public static void UseAction()
+        {
+            CurrentPokemon.SuccessesNeeded++;
+        }
     }
 }
