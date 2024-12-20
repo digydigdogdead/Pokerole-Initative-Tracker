@@ -28,9 +28,10 @@ namespace InitiativeTracker
 
         }
 
-        public static void GetNewPokemon()
+        public static void GetNewPokemon(string name, int initiative)
         {
-
+            Pokemon pokemon = new(name, initiative);
+            ActivePokemon.Add(pokemon);
         }
 
         public static void FaintPokemon()

@@ -32,13 +32,16 @@
             txtbx_Pokéinput = new TextBox();
             lbl_Initiative = new Label();
             txtbx_InitiativeInput = new TextBox();
-            lstbx_InitiativeTracker = new ListBox();
             btn_NewRound = new Button();
             btn_UseAction = new Button();
             button1 = new Button();
-            button2 = new Button();
+            btn_AddPokemon = new Button();
             panelTurn = new Panel();
             lbl_Turn = new Label();
+            lstvw_InitTracker = new ListView();
+            ch_Pokemon = new ColumnHeader();
+            ch_Initiative = new ColumnHeader();
+            ch_Successes = new ColumnHeader();
             panelTurn.SuspendLayout();
             SuspendLayout();
             // 
@@ -74,14 +77,6 @@
             txtbx_InitiativeInput.Size = new Size(35, 27);
             txtbx_InitiativeInput.TabIndex = 3;
             // 
-            // lstbx_InitiativeTracker
-            // 
-            lstbx_InitiativeTracker.FormattingEnabled = true;
-            lstbx_InitiativeTracker.Location = new Point(253, 6);
-            lstbx_InitiativeTracker.Name = "lstbx_InitiativeTracker";
-            lstbx_InitiativeTracker.Size = new Size(251, 204);
-            lstbx_InitiativeTracker.TabIndex = 4;
-            // 
             // btn_NewRound
             // 
             btn_NewRound.BackColor = Color.Gold;
@@ -112,15 +107,16 @@
             button1.Text = "Faint";
             button1.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btn_AddPokemon
             // 
-            button2.BackColor = Color.LawnGreen;
-            button2.Location = new Point(119, 181);
-            button2.Name = "button2";
-            button2.Size = new Size(113, 29);
-            button2.TabIndex = 8;
-            button2.Text = "Add Pokémon";
-            button2.UseVisualStyleBackColor = false;
+            btn_AddPokemon.BackColor = Color.LawnGreen;
+            btn_AddPokemon.Location = new Point(119, 181);
+            btn_AddPokemon.Name = "btn_AddPokemon";
+            btn_AddPokemon.Size = new Size(113, 29);
+            btn_AddPokemon.TabIndex = 8;
+            btn_AddPokemon.Text = "Add Pokémon";
+            btn_AddPokemon.UseVisualStyleBackColor = false;
+            btn_AddPokemon.Click += btn_AddPokemon_Click;
             // 
             // panelTurn
             // 
@@ -128,7 +124,7 @@
             panelTurn.Controls.Add(lbl_Turn);
             panelTurn.Location = new Point(13, 239);
             panelTurn.Name = "panelTurn";
-            panelTurn.Size = new Size(491, 199);
+            panelTurn.Size = new Size(500, 199);
             panelTurn.TabIndex = 9;
             // 
             // lbl_Turn
@@ -141,17 +137,40 @@
             lbl_Turn.TabIndex = 0;
             lbl_Turn.Text = "Who's Turn Is It?";
             // 
+            // lstvw_InitTracker
+            // 
+            lstvw_InitTracker.Columns.AddRange(new ColumnHeader[] { ch_Pokemon, ch_Initiative, ch_Successes });
+            lstvw_InitTracker.Location = new Point(265, 6);
+            lstvw_InitTracker.Name = "lstvw_InitTracker";
+            lstvw_InitTracker.Size = new Size(245, 204);
+            lstvw_InitTracker.TabIndex = 10;
+            lstvw_InitTracker.UseCompatibleStateImageBehavior = false;
+            lstvw_InitTracker.View = View.Details;
+            // 
+            // ch_Pokemon
+            // 
+            ch_Pokemon.Text = "Pokémon";
+            ch_Pokemon.Width = 120;
+            // 
+            // ch_Initiative
+            // 
+            ch_Initiative.Text = "I";
+            // 
+            // ch_Successes
+            // 
+            ch_Successes.Text = "SN";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(516, 450);
+            ClientSize = new Size(522, 450);
+            Controls.Add(lstvw_InitTracker);
             Controls.Add(panelTurn);
-            Controls.Add(button2);
+            Controls.Add(btn_AddPokemon);
             Controls.Add(button1);
             Controls.Add(btn_UseAction);
             Controls.Add(btn_NewRound);
-            Controls.Add(lstbx_InitiativeTracker);
             Controls.Add(txtbx_InitiativeInput);
             Controls.Add(lbl_Initiative);
             Controls.Add(txtbx_Pokéinput);
@@ -170,12 +189,15 @@
         private TextBox txtbx_Pokéinput;
         private Label lbl_Initiative;
         private TextBox txtbx_InitiativeInput;
-        private ListBox lstbx_InitiativeTracker;
         private Button btn_NewRound;
         private Button btn_UseAction;
         private Button button1;
-        private Button button2;
+        private Button btn_AddPokemon;
         private Panel panelTurn;
         private Label lbl_Turn;
+        private ListView lstvw_InitTracker;
+        private ColumnHeader ch_Pokemon;
+        private ColumnHeader ch_Initiative;
+        private ColumnHeader ch_Successes;
     }
 }
