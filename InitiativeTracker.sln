@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35312.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InitiativeTracker", "InitiativeTracker\InitiativeTracker.csproj", "{4CE48C38-575C-4DAB-8999-14455540B940}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4CE48C38-575C-4DAB-8999-14455540B940}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CE48C38-575C-4DAB-8999-14455540B940}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CE48C38-575C-4DAB-8999-14455540B940}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CE48C38-575C-4DAB-8999-14455540B940}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1E601BA6-DE00-4BF6-9CDB-8A3FFB155AE5}
+	EndGlobalSection
+EndGlobal
