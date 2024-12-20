@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace InitiativeTracker
 {
-    internal static class FrontEnd
+    internal static class DataHandling
     {
         public static List<Pokemon> ActivePokemon = new List<Pokemon>();
+        public static Pokemon CurrentPokemon;
 
         public static int Round {  get; set; } = 0;
 
@@ -17,10 +18,12 @@ namespace InitiativeTracker
         {
             Round++;
 
-            foreach (var pokemon in ActivePokemon)
+            if (Round != 1)
             {
-                pokemon.SuccessesNeeded = 1;
+                // This block will update all the pokemon
             }
+
+            CurrentPokemon = ActivePokemon[0];
         }
 
         public static void NextTurn()
@@ -40,5 +43,7 @@ namespace InitiativeTracker
             NextTurn();
             ActivePokemon.Remove(pokemonToFaint);
         }
+
+
     }
 }

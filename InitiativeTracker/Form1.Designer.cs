@@ -42,6 +42,8 @@
             ch_Pokemon = new ColumnHeader();
             ch_Initiative = new ColumnHeader();
             ch_Successes = new ColumnHeader();
+            lbl_Round = new Label();
+            lbl_RoundCount = new Label();
             panelTurn.SuspendLayout();
             SuspendLayout();
             // 
@@ -86,6 +88,7 @@
             btn_NewRound.TabIndex = 5;
             btn_NewRound.Text = "New Round";
             btn_NewRound.UseVisualStyleBackColor = false;
+            btn_NewRound.Click += btn_NewRound_Click;
             // 
             // btn_UseAction
             // 
@@ -110,7 +113,7 @@
             // btn_AddPokemon
             // 
             btn_AddPokemon.BackColor = Color.LawnGreen;
-            btn_AddPokemon.Location = new Point(119, 181);
+            btn_AddPokemon.Location = new Point(119, 89);
             btn_AddPokemon.Name = "btn_AddPokemon";
             btn_AddPokemon.Size = new Size(113, 29);
             btn_AddPokemon.TabIndex = 8;
@@ -160,11 +163,32 @@
             // 
             ch_Successes.Text = "SN";
             // 
+            // lbl_Round
+            // 
+            lbl_Round.AutoSize = true;
+            lbl_Round.Location = new Point(141, 139);
+            lbl_Round.Name = "lbl_Round";
+            lbl_Round.Size = new Size(55, 20);
+            lbl_Round.TabIndex = 11;
+            lbl_Round.Text = "Round:";
+            // 
+            // lbl_RoundCount
+            // 
+            lbl_RoundCount.AutoSize = true;
+            lbl_RoundCount.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_RoundCount.Location = new Point(150, 176);
+            lbl_RoundCount.Name = "lbl_RoundCount";
+            lbl_RoundCount.Size = new Size(26, 31);
+            lbl_RoundCount.TabIndex = 12;
+            lbl_RoundCount.Text = "0";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(522, 450);
+            Controls.Add(lbl_RoundCount);
+            Controls.Add(lbl_Round);
             Controls.Add(lstvw_InitTracker);
             Controls.Add(panelTurn);
             Controls.Add(btn_AddPokemon);
@@ -199,5 +223,7 @@
         private ColumnHeader ch_Pokemon;
         private ColumnHeader ch_Initiative;
         private ColumnHeader ch_Successes;
+        private Label lbl_Round;
+        private Label lbl_RoundCount;
     }
 }
