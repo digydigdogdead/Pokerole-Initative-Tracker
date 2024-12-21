@@ -54,6 +54,8 @@ namespace InitiativeTracker
                 lstvw_InitTracker.Items.Add(item);
 
             }
+
+            if (DataHandling.CurrentPokemon != null) HighlightCurrentMon();
         }
 
         private void btn_NewRound_Click(object sender, EventArgs e)
