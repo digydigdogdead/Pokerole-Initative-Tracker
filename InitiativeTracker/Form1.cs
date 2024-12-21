@@ -32,16 +32,18 @@ namespace InitiativeTracker
                 Pokemon newPokemon = new(txtbx_Pokéinput.Text, initiative, dexterity);
                 DataHandling.ActivePokemon.Add(newPokemon);
             }
-            UpdateTracker();
+            UpdateTracker(true);
         }
 
-        private void UpdateTracker()
+        private void UpdateTracker(bool resort)
         {
             lstvw_InitTracker.Items.Clear();
-            DataHandling.ActivePokemon = (from pokemon in DataHandling.ActivePokemon
-                                          orderby pokemon.Initiative descending, pokemon.Dexterity descending
-                                          select pokemon).ToList();
-
+            if (resort)
+            {
+                DataHandling.ActivePokemon = (from pokemon in DataHandling.ActivePokemon
+                                              orderby pokemon.Initiative descending, pokemon.Dexterity descending
+                                              select pokemon).ToList();
+            }
             foreach (Pokemon pokemon in DataHandling.ActivePokemon)
             {
                 ListViewItem item = new ListViewItem(pokemon.Name);
@@ -58,7 +60,7 @@ namespace InitiativeTracker
         {
             if (DataHandling.ActivePokemon.Count == 0) return;
             DataHandling.NewRound();
-            UpdateTracker();
+            UpdateTracker(true);
             lbl_RoundCount.Text = DataHandling.Round.ToString();
             UpdateTurnLabel();
         }
@@ -66,7 +68,7 @@ namespace InitiativeTracker
         private void btn_UseAction_Click(object sender, EventArgs e)
         {
             DataHandling.UseAction();
-            UpdateTracker();
+            UpdateTracker(false);
         }
 
         private void btn_UpdatePokemon_Click(object sender, EventArgs e)
@@ -84,7 +86,7 @@ namespace InitiativeTracker
             if (!isDexterityValid) DataHandling.UpdatePokemon(pokemonToUpdate, initiative);
             else DataHandling.UpdatePokemon(pokemonToUpdate, initiative, dexterity);
 
-            UpdateTracker();
+            UpdateTracker(true);
         }
 
         private void lstvw_InitTracker_SelectedItemChanged(object sender, EventArgs e)
@@ -113,14 +115,14 @@ namespace InitiativeTracker
             bool result = DataHandling.TryFaintPokemon();
             if (!result) return;
 
-            UpdateTracker();
+            UpdateTracker(false);
             UpdateTurnLabel();
         }
 
         private void btn_Reset_Click(object sender, EventArgs e)
         {
             DataHandling.Reset();
-            UpdateTracker();
+            UpdateTracker(false);
             lbl_RoundCount.Text = "0";
             lbl_Turn.Text = "Who's Turn Is It?";
 
