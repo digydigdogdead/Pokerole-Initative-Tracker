@@ -13,7 +13,6 @@ namespace InitiativeTracker
 
         public static int Round {  get; set; } = 0;
 
-        public static Pokemon? TrackedPokemon { get; set; }
         public static void NewRound()
         {
             Round++;
@@ -61,11 +60,14 @@ namespace InitiativeTracker
             ActivePokemon.Add(pokemon);
         }
 
-        public static void FaintPokemon()
+        public static bool TryFaintPokemon()
         {
-            Pokemon pokemonToFaint = TrackedPokemon;
+            Pokemon? pokemonToFaint = CurrentPokemon;
+            if (pokemonToFaint == null) return false;
+
             TryNextTurn();
             ActivePokemon.Remove(pokemonToFaint);
+            return true;
         }
 
         public static void UseAction()
@@ -73,5 +75,7 @@ namespace InitiativeTracker
             if (CurrentPokemon is null) return;
             CurrentPokemon.SuccessesNeeded++;
         }
+
+
     }
 }

@@ -34,7 +34,7 @@
             txtbx_InitiativeInput = new TextBox();
             btn_NewRound = new Button();
             btn_UseAction = new Button();
-            button1 = new Button();
+            btn_Faint = new Button();
             btn_AddPokemon = new Button();
             panelTurn = new Panel();
             lbl_Turn = new Label();
@@ -46,6 +46,7 @@
             lbl_RoundCount = new Label();
             btn_NextTurn = new Button();
             btn_UpdatePokemon = new Button();
+            btn_Reset = new Button();
             panelTurn.SuspendLayout();
             SuspendLayout();
             // 
@@ -103,15 +104,16 @@
             btn_UseAction.UseVisualStyleBackColor = false;
             btn_UseAction.Click += btn_UseAction_Click;
             // 
-            // button1
+            // btn_Faint
             // 
-            button1.BackColor = Color.Red;
-            button1.Location = new Point(13, 181);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 7;
-            button1.Text = "Faint";
-            button1.UseVisualStyleBackColor = false;
+            btn_Faint.BackColor = Color.Red;
+            btn_Faint.Location = new Point(13, 181);
+            btn_Faint.Name = "btn_Faint";
+            btn_Faint.Size = new Size(94, 29);
+            btn_Faint.TabIndex = 7;
+            btn_Faint.Text = "Faint";
+            btn_Faint.UseVisualStyleBackColor = false;
+            btn_Faint.Click += btn_FaintClick;
             // 
             // btn_AddPokemon
             // 
@@ -208,11 +210,24 @@
             btn_UpdatePokemon.UseVisualStyleBackColor = false;
             btn_UpdatePokemon.Click += btn_UpdatePokemon_Click;
             // 
+            // btn_Reset
+            // 
+            btn_Reset.BackColor = SystemColors.ActiveCaptionText;
+            btn_Reset.ForeColor = Color.FromArgb(192, 0, 0);
+            btn_Reset.Location = new Point(160, 229);
+            btn_Reset.Name = "btn_Reset";
+            btn_Reset.Size = new Size(94, 29);
+            btn_Reset.TabIndex = 15;
+            btn_Reset.Text = "Reset";
+            btn_Reset.UseVisualStyleBackColor = false;
+            btn_Reset.Click += btn_Reset_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(522, 500);
+            Controls.Add(btn_Reset);
             Controls.Add(btn_UpdatePokemon);
             Controls.Add(btn_NextTurn);
             Controls.Add(lbl_RoundCount);
@@ -220,7 +235,7 @@
             Controls.Add(lstvw_InitTracker);
             Controls.Add(panelTurn);
             Controls.Add(btn_AddPokemon);
-            Controls.Add(button1);
+            Controls.Add(btn_Faint);
             Controls.Add(btn_UseAction);
             Controls.Add(btn_NewRound);
             Controls.Add(txtbx_InitiativeInput);
@@ -243,7 +258,7 @@
         private TextBox txtbx_InitiativeInput;
         private Button btn_NewRound;
         private Button btn_UseAction;
-        private Button button1;
+        private Button btn_Faint;
         private Button btn_AddPokemon;
         private Panel panelTurn;
         private Label lbl_Turn;
@@ -255,5 +270,6 @@
         private Label lbl_RoundCount;
         private Button btn_NextTurn;
         private Button btn_UpdatePokemon;
+        private Button btn_Reset;
     }
 }

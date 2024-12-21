@@ -92,5 +92,19 @@ namespace InitiativeTracker
         {
             lbl_Turn.Text = $"It's {DataHandling.CurrentPokemon.Name}'s Turn!";
         }
+
+        private void btn_FaintClick(object sender, EventArgs e)
+        {
+            bool result = DataHandling.TryFaintPokemon();
+            if (!result) return;
+
+            UpdateTracker();
+            UpdateTurnLabel();
+        }
+
+        private void btn_Reset_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
