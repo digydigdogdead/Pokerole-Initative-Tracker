@@ -42,14 +42,16 @@
             ch_Pokemon = new ColumnHeader();
             ch_Initiative = new ColumnHeader();
             ch_Successes = new ColumnHeader();
+            ch_Dexterity = new ColumnHeader();
             lbl_Round = new Label();
             lbl_RoundCount = new Label();
             btn_NextTurn = new Button();
             btn_UpdatePokemon = new Button();
             btn_Reset = new Button();
-            ch_Dexterity = new ColumnHeader();
             lbl_Dex = new Label();
             txtbx_DexInput = new TextBox();
+            btn_MoveUp = new Button();
+            btn_MoveDown = new Button();
             panelTurn.SuspendLayout();
             SuspendLayout();
             // 
@@ -172,6 +174,10 @@
             // 
             ch_Successes.Text = "SN";
             // 
+            // ch_Dexterity
+            // 
+            ch_Dexterity.Text = "D";
+            // 
             // lbl_Round
             // 
             lbl_Round.AutoSize = true;
@@ -225,10 +231,6 @@
             btn_Reset.UseVisualStyleBackColor = false;
             btn_Reset.Click += btn_Reset_Click;
             // 
-            // ch_Dexterity
-            // 
-            ch_Dexterity.Text = "D";
-            // 
             // lbl_Dex
             // 
             lbl_Dex.AutoSize = true;
@@ -245,11 +247,34 @@
             txtbx_DexInput.Size = new Size(37, 27);
             txtbx_DexInput.TabIndex = 17;
             // 
+            // btn_MoveUp
+            // 
+            btn_MoveUp.BackColor = Color.LightGreen;
+            btn_MoveUp.Location = new Point(281, 266);
+            btn_MoveUp.Name = "btn_MoveUp";
+            btn_MoveUp.Size = new Size(185, 29);
+            btn_MoveUp.TabIndex = 18;
+            btn_MoveUp.Text = "Move Up";
+            btn_MoveUp.UseVisualStyleBackColor = false;
+            btn_MoveUp.Click += btn_MoveUp_Click;
+            // 
+            // btn_MoveDown
+            // 
+            btn_MoveDown.BackColor = Color.Pink;
+            btn_MoveDown.Location = new Point(483, 266);
+            btn_MoveDown.Name = "btn_MoveDown";
+            btn_MoveDown.Size = new Size(185, 29);
+            btn_MoveDown.TabIndex = 19;
+            btn_MoveDown.Text = "Move Down";
+            btn_MoveDown.UseVisualStyleBackColor = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(716, 500);
+            Controls.Add(btn_MoveDown);
+            Controls.Add(btn_MoveUp);
             Controls.Add(txtbx_DexInput);
             Controls.Add(lbl_Dex);
             Controls.Add(btn_Reset);
@@ -299,5 +324,7 @@
         private ColumnHeader ch_Dexterity;
         private Label lbl_Dex;
         private TextBox txtbx_DexInput;
+        private Button btn_MoveUp;
+        private Button btn_MoveDown;
     }
 }

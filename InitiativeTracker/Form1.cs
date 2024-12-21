@@ -130,5 +130,14 @@ namespace InitiativeTracker
             lbl_Turn.Text = "Who's Turn Is It?";
 
         }
+
+        private void btn_MoveUp_Click(object sender, EventArgs e)
+        {
+            Pokemon? movingMon = DataHandling.GetPokemonByName(txtbx_Pokéinput.Text);
+            if (movingMon == null) return;
+
+            DataHandling.MoveUp(movingMon);
+            UpdateTracker(false);
+        }
     }
 }
