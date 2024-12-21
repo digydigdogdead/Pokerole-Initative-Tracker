@@ -49,7 +49,7 @@ namespace InitiativeTracker
             DataHandling.NewRound();
             UpdateTracker();
             lbl_RoundCount.Text = DataHandling.Round.ToString();
-            lbl_Turn.Text = $"It's {DataHandling.CurrentPokemon.Name}'s Turn!";
+            UpdateTurnLabel();
         }
 
         private void btn_UseAction_Click(object sender, EventArgs e)
@@ -79,6 +79,18 @@ namespace InitiativeTracker
             txtbx_Pokéinput.Focus();
 
 
+        }
+
+        private void btn_NextTurn_Click(object sender, EventArgs e)
+        {
+            bool result = DataHandling.TryNextTurn();
+
+            if (result) UpdateTurnLabel();
+        }
+
+        private void UpdateTurnLabel()
+        {
+            lbl_Turn.Text = $"It's {DataHandling.CurrentPokemon.Name}'s Turn!";
         }
     }
 }

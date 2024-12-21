@@ -153,7 +153,6 @@
             lstvw_InitTracker.UseCompatibleStateImageBehavior = false;
             lstvw_InitTracker.View = View.Details;
             lstvw_InitTracker.ItemActivate += lstvw_InitTracker_SelectedItemChanged;
-
             // 
             // ch_Pokemon
             // 
@@ -196,6 +195,7 @@
             btn_NextTurn.TabIndex = 13;
             btn_NextTurn.Text = "Next Turn";
             btn_NextTurn.UseVisualStyleBackColor = false;
+            btn_NextTurn.Click += btn_NextTurn_Click;
             // 
             // btn_UpdatePokemon
             // 

@@ -23,11 +23,6 @@ namespace InitiativeTracker
                 pokemon.SuccessesNeeded = 1;
             }
 
-            if (Round != 1)
-            {
-                // This block will update all the pokemon
-            }
-
             CurrentPokemon = ActivePokemon[0];
         }
 
@@ -48,9 +43,16 @@ namespace InitiativeTracker
             return null;
         }
 
-        public static void NextTurn()
+        public static bool TryNextTurn()
         {
+            if (CurrentPokemon is null) return false;
 
+            var indexCurrent = ActivePokemon.IndexOf(CurrentPokemon);
+
+            if (indexCurrent == ActivePokemon.Count - 1) return false;
+
+            CurrentPokemon = ActivePokemon[indexCurrent + 1];
+            return true;
         }
 
         public static void GetNewPokemon(string name, int initiative)
@@ -62,7 +64,7 @@ namespace InitiativeTracker
         public static void FaintPokemon()
         {
             Pokemon pokemonToFaint = TrackedPokemon;
-            NextTurn();
+            TryNextTurn();
             ActivePokemon.Remove(pokemonToFaint);
         }
 
