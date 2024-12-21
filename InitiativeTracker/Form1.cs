@@ -114,9 +114,10 @@ namespace InitiativeTracker
 
         private void btn_FaintClick(object sender, EventArgs e)
         {
-            bool result = DataHandling.TryFaintPokemon();
-            if (!result) return;
+            Pokemon? faintedMon = DataHandling.GetPokemonByName(txtbx_Pokéinput.Text);
+            if (faintedMon == null) return;
 
+            DataHandling.TryFaintPokemon(faintedMon);
             UpdateTracker(false);
             UpdateTurnLabel();
         }

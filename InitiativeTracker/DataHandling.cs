@@ -61,14 +61,19 @@ namespace InitiativeTracker
             ActivePokemon.Add(pokemon);
         }
 
-        public static bool TryFaintPokemon()
+        public static void TryFaintPokemon(Pokemon faintedMon)
         {
-            Pokemon? pokemonToFaint = CurrentPokemon;
-            if (pokemonToFaint == null) return false;
-
-            TryNextTurn();
-            ActivePokemon.Remove(pokemonToFaint);
-            return true;
+            if (faintedMon == CurrentPokemon)
+            {
+                TryNextTurn();
+                ActivePokemon.Remove(faintedMon);
+                return;
+            }
+            else
+            {
+                ActivePokemon.Remove(faintedMon);
+                return;
+            }
         }
 
         public static void UseAction(Pokemon actingMon)
