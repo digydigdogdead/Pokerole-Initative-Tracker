@@ -1,4 +1,6 @@
 # Pokérole InitiativeTracker
+You can download this app from Mediafire [here](https://www.mediafire.com/file/elzqw9iqh9eh9xf/InitiativeTracker+1.3.zip/file)
+
 [Pokérole](https://www.pokeroleproject.com) is an independent Pokémon TTRPG, and it's really good, but keeping track of whose turn it is during battles can get quite difficult, especially as you have to remember how many individual successes every Pokémon needs to do anything.
 Enter the **Pokérole Initiative Tracker**!
 ## How to use the application:
