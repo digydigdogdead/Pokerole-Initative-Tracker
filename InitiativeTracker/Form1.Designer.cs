@@ -37,6 +37,7 @@
             btn_Faint = new Button();
             btn_AddPokemon = new Button();
             panelTurn = new Panel();
+            btn_Help = new Button();
             lbl_Turn = new Label();
             lstvw_InitTracker = new ListView();
             ch_Pokemon = new ColumnHeader();
@@ -134,11 +135,23 @@
             // panelTurn
             // 
             panelTurn.BackColor = SystemColors.ActiveCaption;
+            panelTurn.Controls.Add(btn_Help);
             panelTurn.Controls.Add(lbl_Turn);
             panelTurn.Location = new Point(12, 309);
             panelTurn.Name = "panelTurn";
             panelTurn.Size = new Size(692, 179);
             panelTurn.TabIndex = 9;
+            // 
+            // btn_Help
+            // 
+            btn_Help.BackColor = Color.Transparent;
+            btn_Help.Location = new Point(666, 147);
+            btn_Help.Name = "btn_Help";
+            btn_Help.Size = new Size(23, 29);
+            btn_Help.TabIndex = 1;
+            btn_Help.Text = "?";
+            btn_Help.UseVisualStyleBackColor = false;
+            btn_Help.Click += btn_Help_Click;
             // 
             // lbl_Turn
             // 
@@ -327,5 +340,6 @@
         private TextBox txtbx_DexInput;
         private Button btn_MoveUp;
         private Button btn_MoveDown;
+        private Button btn_Help;
     }
 }
