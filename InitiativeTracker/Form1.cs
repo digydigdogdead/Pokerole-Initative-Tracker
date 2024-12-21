@@ -71,5 +71,14 @@ namespace InitiativeTracker
             DataHandling.UpdatePokemon(pokemonToUpdate, initiative);
             UpdateTracker();
         }
+
+        private void lstvw_InitTracker_SelectedItemChanged(object sender, EventArgs e)
+        {
+            txtbx_Pokéinput.Text = lstvw_InitTracker.SelectedItems[0].Text;
+            lstvw_InitTracker.SelectedItems[0].Focused = false;
+            txtbx_Pokéinput.Focus();
+
+
+        }
     }
 }

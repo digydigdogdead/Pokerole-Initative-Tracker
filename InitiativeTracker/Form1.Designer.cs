@@ -152,6 +152,8 @@
             lstvw_InitTracker.TabIndex = 10;
             lstvw_InitTracker.UseCompatibleStateImageBehavior = false;
             lstvw_InitTracker.View = View.Details;
+            lstvw_InitTracker.ItemActivate += lstvw_InitTracker_SelectedItemChanged;
+
             // 
             // ch_Pokemon
             // 
