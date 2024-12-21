@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             lbl_Pokémon = new Label();
             txtbx_Pokéinput = new TextBox();
             lbl_Initiative = new Label();
@@ -306,8 +307,9 @@
             Controls.Add(lbl_Initiative);
             Controls.Add(txtbx_Pokéinput);
             Controls.Add(lbl_Pokémon);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
-            Text = "Pokemon Initiative Tracker";
+            Text = "PokeRole Initiative Tracker";
             panelTurn.ResumeLayout(false);
             panelTurn.PerformLayout();
             ResumeLayout(false);
