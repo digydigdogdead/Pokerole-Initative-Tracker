@@ -18,12 +18,34 @@ namespace InitiativeTracker
         {
             Round++;
 
+            foreach (var pokemon in ActivePokemon)
+            {
+                pokemon.SuccessesNeeded = 1;
+            }
+
             if (Round != 1)
             {
                 // This block will update all the pokemon
             }
 
             CurrentPokemon = ActivePokemon[0];
+        }
+
+        public static void UpdatePokemon(Pokemon pokemon, int initiative)
+        {
+            pokemon.Initiative = initiative;
+        }
+
+        public static Pokemon? GetPokemonByName(string name)
+        {
+            if (string.IsNullOrEmpty(name)) return null;
+
+            foreach (var pokemon in ActivePokemon)
+            {
+                if (pokemon.Name == name) return pokemon;
+            }
+
+            return null;
         }
 
         public static void NextTurn()
@@ -46,6 +68,7 @@ namespace InitiativeTracker
 
         public static void UseAction()
         {
+            if (CurrentPokemon is null) return;
             CurrentPokemon.SuccessesNeeded++;
         }
     }

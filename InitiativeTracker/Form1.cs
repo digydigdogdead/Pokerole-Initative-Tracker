@@ -47,6 +47,7 @@ namespace InitiativeTracker
         {
             if (DataHandling.ActivePokemon.Count == 0) return;
             DataHandling.NewRound();
+            UpdateTracker();
             lbl_RoundCount.Text = DataHandling.Round.ToString();
             lbl_Turn.Text = $"It's {DataHandling.CurrentPokemon.Name}'s Turn!";
         }
@@ -54,6 +55,20 @@ namespace InitiativeTracker
         private void btn_UseAction_Click(object sender, EventArgs e)
         {
             DataHandling.UseAction();
+            UpdateTracker();
+        }
+
+        private void btn_UpdatePokemon_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtbx_Pokéinput.Text) || String.IsNullOrEmpty(txtbx_Pokéinput.Text)) return;
+
+            Pokemon? pokemonToUpdate = DataHandling.GetPokemonByName(txtbx_Pokéinput.Text);
+            if (pokemonToUpdate == null) return;
+
+            bool isInitiativeValid = int.TryParse(txtbx_InitiativeInput.Text, out int initiative);
+            if (!isInitiativeValid || initiative < 1) return;
+
+            DataHandling.UpdatePokemon(pokemonToUpdate, initiative);
             UpdateTracker();
         }
     }

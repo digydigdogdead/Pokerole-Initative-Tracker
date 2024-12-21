@@ -44,6 +44,8 @@
             ch_Successes = new ColumnHeader();
             lbl_Round = new Label();
             lbl_RoundCount = new Label();
+            btn_NextTurn = new Button();
+            btn_UpdatePokemon = new Button();
             panelTurn.SuspendLayout();
             SuspendLayout();
             // 
@@ -60,7 +62,7 @@
             // 
             txtbx_Pokéinput.Location = new Point(88, 6);
             txtbx_Pokéinput.Name = "txtbx_Pokéinput";
-            txtbx_Pokéinput.Size = new Size(144, 27);
+            txtbx_Pokéinput.Size = new Size(171, 27);
             txtbx_Pokéinput.TabIndex = 1;
             // 
             // lbl_Initiative
@@ -74,7 +76,7 @@
             // 
             // txtbx_InitiativeInput
             // 
-            txtbx_InitiativeInput.Location = new Point(141, 44);
+            txtbx_InitiativeInput.Location = new Point(160, 44);
             txtbx_InitiativeInput.Name = "txtbx_InitiativeInput";
             txtbx_InitiativeInput.Size = new Size(35, 27);
             txtbx_InitiativeInput.TabIndex = 3;
@@ -116,7 +118,7 @@
             btn_AddPokemon.BackColor = Color.LawnGreen;
             btn_AddPokemon.Location = new Point(119, 89);
             btn_AddPokemon.Name = "btn_AddPokemon";
-            btn_AddPokemon.Size = new Size(113, 29);
+            btn_AddPokemon.Size = new Size(140, 29);
             btn_AddPokemon.TabIndex = 8;
             btn_AddPokemon.Text = "Add Pokémon";
             btn_AddPokemon.UseVisualStyleBackColor = false;
@@ -126,7 +128,7 @@
             // 
             panelTurn.BackColor = SystemColors.ActiveCaption;
             panelTurn.Controls.Add(lbl_Turn);
-            panelTurn.Location = new Point(13, 239);
+            panelTurn.Location = new Point(12, 289);
             panelTurn.Name = "panelTurn";
             panelTurn.Size = new Size(500, 199);
             panelTurn.TabIndex = 9;
@@ -135,7 +137,7 @@
             // 
             lbl_Turn.AutoSize = true;
             lbl_Turn.Font = new Font("Showcard Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_Turn.Location = new Point(128, 89);
+            lbl_Turn.Location = new Point(129, 94);
             lbl_Turn.Name = "lbl_Turn";
             lbl_Turn.Size = new Size(217, 29);
             lbl_Turn.TabIndex = 0;
@@ -146,7 +148,7 @@
             lstvw_InitTracker.Columns.AddRange(new ColumnHeader[] { ch_Pokemon, ch_Initiative, ch_Successes });
             lstvw_InitTracker.Location = new Point(265, 6);
             lstvw_InitTracker.Name = "lstvw_InitTracker";
-            lstvw_InitTracker.Size = new Size(245, 204);
+            lstvw_InitTracker.Size = new Size(245, 254);
             lstvw_InitTracker.TabIndex = 10;
             lstvw_InitTracker.UseCompatibleStateImageBehavior = false;
             lstvw_InitTracker.View = View.Details;
@@ -167,7 +169,7 @@
             // lbl_Round
             // 
             lbl_Round.AutoSize = true;
-            lbl_Round.Location = new Point(141, 139);
+            lbl_Round.Location = new Point(30, 238);
             lbl_Round.Name = "lbl_Round";
             lbl_Round.Size = new Size(55, 20);
             lbl_Round.TabIndex = 11;
@@ -177,17 +179,40 @@
             // 
             lbl_RoundCount.AutoSize = true;
             lbl_RoundCount.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_RoundCount.Location = new Point(150, 176);
+            lbl_RoundCount.Location = new Point(91, 229);
             lbl_RoundCount.Name = "lbl_RoundCount";
             lbl_RoundCount.Size = new Size(26, 31);
             lbl_RoundCount.TabIndex = 12;
             lbl_RoundCount.Text = "0";
             // 
+            // btn_NextTurn
+            // 
+            btn_NextTurn.BackColor = Color.PapayaWhip;
+            btn_NextTurn.Location = new Point(119, 181);
+            btn_NextTurn.Name = "btn_NextTurn";
+            btn_NextTurn.Size = new Size(140, 29);
+            btn_NextTurn.TabIndex = 13;
+            btn_NextTurn.Text = "Next Turn";
+            btn_NextTurn.UseVisualStyleBackColor = false;
+            // 
+            // btn_UpdatePokemon
+            // 
+            btn_UpdatePokemon.BackColor = Color.GreenYellow;
+            btn_UpdatePokemon.Location = new Point(119, 135);
+            btn_UpdatePokemon.Name = "btn_UpdatePokemon";
+            btn_UpdatePokemon.Size = new Size(140, 29);
+            btn_UpdatePokemon.TabIndex = 14;
+            btn_UpdatePokemon.Text = "Update Pokémon";
+            btn_UpdatePokemon.UseVisualStyleBackColor = false;
+            btn_UpdatePokemon.Click += btn_UpdatePokemon_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(522, 450);
+            ClientSize = new Size(522, 500);
+            Controls.Add(btn_UpdatePokemon);
+            Controls.Add(btn_NextTurn);
             Controls.Add(lbl_RoundCount);
             Controls.Add(lbl_Round);
             Controls.Add(lstvw_InitTracker);
@@ -226,5 +251,7 @@
         private ColumnHeader ch_Successes;
         private Label lbl_Round;
         private Label lbl_RoundCount;
+        private Button btn_NextTurn;
+        private Button btn_UpdatePokemon;
     }
 }
