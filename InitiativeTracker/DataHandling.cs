@@ -54,9 +54,9 @@ namespace InitiativeTracker
             return true;
         }
 
-        public static void GetNewPokemon(string name, int initiative)
+        public static void GetNewPokemon(string name, int initiative, int dexterity)
         {
-            Pokemon pokemon = new(name, initiative);
+            Pokemon pokemon = new(name, initiative, dexterity);
             ActivePokemon.Add(pokemon);
         }
 

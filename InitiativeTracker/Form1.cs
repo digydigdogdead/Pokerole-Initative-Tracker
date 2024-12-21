@@ -20,8 +20,18 @@ namespace InitiativeTracker
                 initiative < 1)
             { return; }
 
-            Pokemon newPokemon = new(txtbx_Pokéinput.Text, initiative);
-            DataHandling.ActivePokemon.Add(newPokemon);
+            bool isDexterityValid = int.TryParse(txtbx_DexInput.Text, out int dexterity);
+
+            if (!isDexterityValid)
+            {
+                Pokemon newPokemon = new(txtbx_Pokéinput.Text, initiative);
+                DataHandling.ActivePokemon.Add(newPokemon);
+            }
+            else
+            {
+                Pokemon newPokemon = new(txtbx_Pokéinput.Text, initiative, dexterity);
+                DataHandling.ActivePokemon.Add(newPokemon);
+            }
             UpdateTracker();
         }
 
@@ -29,7 +39,7 @@ namespace InitiativeTracker
         {
             lstvw_InitTracker.Items.Clear();
             DataHandling.ActivePokemon = (from pokemon in DataHandling.ActivePokemon
-                                          orderby pokemon.Initiative descending
+                                          orderby pokemon.Initiative descending, pokemon.Dexterity descending
                                           select pokemon).ToList();
 
             foreach (Pokemon pokemon in DataHandling.ActivePokemon)
@@ -37,6 +47,7 @@ namespace InitiativeTracker
                 ListViewItem item = new ListViewItem(pokemon.Name);
                 item.SubItems.Add(pokemon.Initiative.ToString());
                 item.SubItems.Add(pokemon.SuccessesNeeded.ToString());
+                item.SubItems.Add(pokemon.Dexterity.ToString());
 
                 lstvw_InitTracker.Items.Add(item);
 

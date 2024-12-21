@@ -47,6 +47,9 @@
             btn_NextTurn = new Button();
             btn_UpdatePokemon = new Button();
             btn_Reset = new Button();
+            ch_Dexterity = new ColumnHeader();
+            lbl_Dex = new Label();
+            txtbx_DexInput = new TextBox();
             panelTurn.SuspendLayout();
             SuspendLayout();
             // 
@@ -77,7 +80,7 @@
             // 
             // txtbx_InitiativeInput
             // 
-            txtbx_InitiativeInput.Location = new Point(160, 44);
+            txtbx_InitiativeInput.Location = new Point(88, 44);
             txtbx_InitiativeInput.Name = "txtbx_InitiativeInput";
             txtbx_InitiativeInput.Size = new Size(35, 27);
             txtbx_InitiativeInput.TabIndex = 3;
@@ -130,16 +133,16 @@
             // 
             panelTurn.BackColor = SystemColors.ActiveCaption;
             panelTurn.Controls.Add(lbl_Turn);
-            panelTurn.Location = new Point(12, 289);
+            panelTurn.Location = new Point(12, 309);
             panelTurn.Name = "panelTurn";
-            panelTurn.Size = new Size(500, 199);
+            panelTurn.Size = new Size(692, 179);
             panelTurn.TabIndex = 9;
             // 
             // lbl_Turn
             // 
             lbl_Turn.AutoSize = true;
             lbl_Turn.Font = new Font("Showcard Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_Turn.Location = new Point(129, 94);
+            lbl_Turn.Location = new Point(221, 84);
             lbl_Turn.Name = "lbl_Turn";
             lbl_Turn.Size = new Size(217, 29);
             lbl_Turn.TabIndex = 0;
@@ -147,10 +150,10 @@
             // 
             // lstvw_InitTracker
             // 
-            lstvw_InitTracker.Columns.AddRange(new ColumnHeader[] { ch_Pokemon, ch_Initiative, ch_Successes });
+            lstvw_InitTracker.Columns.AddRange(new ColumnHeader[] { ch_Pokemon, ch_Initiative, ch_Successes, ch_Dexterity });
             lstvw_InitTracker.Location = new Point(265, 6);
             lstvw_InitTracker.Name = "lstvw_InitTracker";
-            lstvw_InitTracker.Size = new Size(245, 254);
+            lstvw_InitTracker.Size = new Size(439, 254);
             lstvw_InitTracker.TabIndex = 10;
             lstvw_InitTracker.UseCompatibleStateImageBehavior = false;
             lstvw_InitTracker.View = View.Details;
@@ -222,11 +225,33 @@
             btn_Reset.UseVisualStyleBackColor = false;
             btn_Reset.Click += btn_Reset_Click;
             // 
+            // ch_Dexterity
+            // 
+            ch_Dexterity.Text = "D";
+            // 
+            // lbl_Dex
+            // 
+            lbl_Dex.AutoSize = true;
+            lbl_Dex.Location = new Point(141, 47);
+            lbl_Dex.Name = "lbl_Dex";
+            lbl_Dex.Size = new Size(38, 20);
+            lbl_Dex.TabIndex = 16;
+            lbl_Dex.Text = "Dex:";
+            // 
+            // txtbx_DexInput
+            // 
+            txtbx_DexInput.Location = new Point(185, 47);
+            txtbx_DexInput.Name = "txtbx_DexInput";
+            txtbx_DexInput.Size = new Size(37, 27);
+            txtbx_DexInput.TabIndex = 17;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(522, 500);
+            ClientSize = new Size(716, 500);
+            Controls.Add(txtbx_DexInput);
+            Controls.Add(lbl_Dex);
             Controls.Add(btn_Reset);
             Controls.Add(btn_UpdatePokemon);
             Controls.Add(btn_NextTurn);
@@ -271,5 +296,8 @@
         private Button btn_NextTurn;
         private Button btn_UpdatePokemon;
         private Button btn_Reset;
+        private ColumnHeader ch_Dexterity;
+        private Label lbl_Dex;
+        private TextBox txtbx_DexInput;
     }
 }

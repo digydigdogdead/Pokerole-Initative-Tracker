@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace InitiativeTracker
 {
-    internal class Pokemon(string name, int initiative)
+    internal class Pokemon(string name, int initiative, int? dexterity = null)
     {
         public String Name { get; set; } = name;
         public int Initiative { get; set; } = initiative;
         public int SuccessesNeeded { get; set; } = 1;
+        public int? Dexterity { get; set; } = dexterity;
 
 
         public void UseAction()
