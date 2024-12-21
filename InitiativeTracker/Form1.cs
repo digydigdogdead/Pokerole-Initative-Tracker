@@ -63,6 +63,7 @@ namespace InitiativeTracker
             UpdateTracker(true);
             lbl_RoundCount.Text = DataHandling.Round.ToString();
             UpdateTurnLabel();
+            HighlightCurrentMon();
         }
 
         private void btn_UseAction_Click(object sender, EventArgs e)
@@ -104,12 +105,27 @@ namespace InitiativeTracker
         {
             bool result = DataHandling.TryNextTurn();
 
-            if (result) UpdateTurnLabel();
+            if (result)
+            {
+                UpdateTurnLabel();
+                HighlightCurrentMon();
+            }
         }
 
         private void UpdateTurnLabel()
         {
             lbl_Turn.Text = $"It's {DataHandling.CurrentPokemon.Name}'s Turn!";
+        }
+        private void HighlightCurrentMon()
+        {
+            foreach (ListViewItem pokemon in lstvw_InitTracker.Items)
+            {
+                if (pokemon.Text == DataHandling.CurrentPokemon.Name)
+                {
+                    pokemon.ForeColor = Color.Green;
+                }
+                else pokemon.ForeColor = Color.Gray;
+            }
         }
 
         private void btn_FaintClick(object sender, EventArgs e)
