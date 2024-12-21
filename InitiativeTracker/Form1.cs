@@ -64,6 +64,7 @@ namespace InitiativeTracker
 
             DataHandling.NewRound();
             UpdateTracker(true);
+            if (DataHandling.Round > 0) btn_NewRound.Text = "New Round";
             lbl_RoundCount.Text = DataHandling.Round.ToString();
             txtbx_Pokéinput.Text = DataHandling.CurrentPokemon.Name;
             UpdateTurnLabel();

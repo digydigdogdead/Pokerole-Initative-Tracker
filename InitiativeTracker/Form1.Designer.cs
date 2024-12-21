@@ -94,7 +94,7 @@
             btn_NewRound.Name = "btn_NewRound";
             btn_NewRound.Size = new Size(94, 29);
             btn_NewRound.TabIndex = 5;
-            btn_NewRound.Text = "New Round";
+            btn_NewRound.Text = "Start!";
             btn_NewRound.UseVisualStyleBackColor = false;
             btn_NewRound.Click += btn_NewRound_Click;
             // 
