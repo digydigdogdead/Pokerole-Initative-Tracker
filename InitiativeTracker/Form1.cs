@@ -153,6 +153,7 @@ namespace InitiativeTracker
             UpdateTracker(false);
             lbl_RoundCount.Text = "0";
             lbl_Turn.Text = "Who's Turn Is It?";
+            btn_NewRound.Text = "Start!";
 
         }
 
