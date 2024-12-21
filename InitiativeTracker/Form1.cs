@@ -61,9 +61,11 @@ namespace InitiativeTracker
         private void btn_NewRound_Click(object sender, EventArgs e)
         {
             if (DataHandling.ActivePokemon.Count == 0) return;
+
             DataHandling.NewRound();
             UpdateTracker(true);
             lbl_RoundCount.Text = DataHandling.Round.ToString();
+            txtbx_Pokéinput.Text = DataHandling.CurrentPokemon.Name;
             UpdateTurnLabel();
             HighlightCurrentMon();
         }
@@ -105,6 +107,8 @@ namespace InitiativeTracker
 
         private void btn_NextTurn_Click(object sender, EventArgs e)
         {
+            if (DataHandling.Round == 0) return;
+
             bool result = DataHandling.TryNextTurn();
 
             if (result)
@@ -112,6 +116,8 @@ namespace InitiativeTracker
                 UpdateTurnLabel();
                 HighlightCurrentMon();
             }
+
+            txtbx_Pokéinput.Text = DataHandling.CurrentPokemon.Name;
         }
 
         private void UpdateTurnLabel()
