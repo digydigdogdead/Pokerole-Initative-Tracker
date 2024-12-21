@@ -9,7 +9,7 @@ namespace InitiativeTracker
     internal static class DataHandling
     {
         public static List<Pokemon> ActivePokemon = new List<Pokemon>();
-        public static Pokemon CurrentPokemon;
+        public static Pokemon? CurrentPokemon;
 
         public static int Round {  get; set; } = 0;
 
@@ -76,6 +76,11 @@ namespace InitiativeTracker
             CurrentPokemon.SuccessesNeeded++;
         }
 
-
+        public static void Reset()
+        {
+            ActivePokemon.Clear();
+            CurrentPokemon = null;
+            Round = 0;
+        }
     }
 }

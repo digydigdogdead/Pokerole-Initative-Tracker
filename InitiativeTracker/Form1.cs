@@ -104,6 +104,10 @@ namespace InitiativeTracker
 
         private void btn_Reset_Click(object sender, EventArgs e)
         {
+            DataHandling.Reset();
+            UpdateTracker();
+            lbl_RoundCount.Text = "0";
+            lbl_Turn.Text = "Who's Turn Is It?";
 
         }
     }
