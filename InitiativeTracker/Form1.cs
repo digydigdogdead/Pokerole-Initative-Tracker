@@ -122,9 +122,9 @@ namespace InitiativeTracker
             {
                 if (pokemon.Text == DataHandling.CurrentPokemon.Name)
                 {
-                    pokemon.ForeColor = Color.Green;
+                    pokemon.BackColor = Color.LightGreen;
                 }
-                else pokemon.ForeColor = Color.Gray;
+                else pokemon.BackColor = Color.Gray;
             }
         }
 
