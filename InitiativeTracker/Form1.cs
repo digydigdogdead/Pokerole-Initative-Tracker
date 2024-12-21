@@ -67,7 +67,9 @@ namespace InitiativeTracker
 
         private void btn_UseAction_Click(object sender, EventArgs e)
         {
-            DataHandling.UseAction();
+            Pokemon? selectedMon = DataHandling.GetPokemonByName(txtbx_Pokéinput.Text);
+            if (selectedMon == null) return;
+            DataHandling.UseAction(selectedMon);
             UpdateTracker(false);
         }
 

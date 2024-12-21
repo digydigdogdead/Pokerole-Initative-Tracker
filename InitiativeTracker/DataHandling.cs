@@ -55,7 +55,7 @@ namespace InitiativeTracker
             return true;
         }
 
-        public static void GetNewPokemon(string name, int initiative, int dexterity)
+        public static void AddNewPokemon(string name, int initiative, int dexterity)
         {
             Pokemon pokemon = new(name, initiative, dexterity);
             ActivePokemon.Add(pokemon);
@@ -71,10 +71,9 @@ namespace InitiativeTracker
             return true;
         }
 
-        public static void UseAction()
+        public static void UseAction(Pokemon actingMon)
         {
-            if (CurrentPokemon is null) return;
-            CurrentPokemon.SuccessesNeeded++;
+            actingMon.SuccessesNeeded++;
         }
 
         public static void Reset()
