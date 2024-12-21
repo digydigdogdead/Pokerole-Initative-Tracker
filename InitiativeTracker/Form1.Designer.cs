@@ -267,6 +267,7 @@
             btn_MoveDown.TabIndex = 19;
             btn_MoveDown.Text = "Move Down";
             btn_MoveDown.UseVisualStyleBackColor = false;
+            btn_MoveDown.Click += btn_MoveDown_Click;
             // 
             // Form1
             // 

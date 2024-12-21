@@ -100,5 +100,18 @@ namespace InitiativeTracker
             ActivePokemon[currentIndex] = switchingMon;
             ActivePokemon[currentIndex - 1] = pokemon;
         }
+
+        public static void MoveDown(Pokemon pokemon)
+        {
+            if (ActivePokemon.Count < 2) return;
+
+            int currentIndex = ActivePokemon.IndexOf(pokemon);
+            if (currentIndex == ActivePokemon.Count - 1) return;
+
+            Pokemon switchingMon = ActivePokemon[currentIndex + 1];
+
+            ActivePokemon[currentIndex] = switchingMon;
+            ActivePokemon[currentIndex + 1] = pokemon;
+        }
     }
 }

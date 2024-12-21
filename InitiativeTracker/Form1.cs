@@ -139,5 +139,14 @@ namespace InitiativeTracker
             DataHandling.MoveUp(movingMon);
             UpdateTracker(false);
         }
+
+        private void btn_MoveDown_Click(object sender, EventArgs e)
+        {
+            Pokemon? movingMon = DataHandling.GetPokemonByName(txtbx_Pokéinput.Text);
+            if (movingMon == null) return;
+
+            DataHandling.MoveDown(movingMon);
+            UpdateTracker(false);
+        }
     }
 }
