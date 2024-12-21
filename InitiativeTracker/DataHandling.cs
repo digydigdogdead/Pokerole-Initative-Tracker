@@ -49,7 +49,11 @@ namespace InitiativeTracker
 
             var indexCurrent = ActivePokemon.IndexOf(CurrentPokemon);
 
-            if (indexCurrent == ActivePokemon.Count - 1) return false;
+            if (indexCurrent == ActivePokemon.Count - 1)
+            {
+                CurrentPokemon = ActivePokemon[0];
+                return true;
+            }
 
             CurrentPokemon = ActivePokemon[indexCurrent + 1];
             return true;
