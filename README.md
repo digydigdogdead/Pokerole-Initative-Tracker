@@ -8,6 +8,7 @@ Enter the **Pokérole Initiative Tracker**!
 4. Move on to the next turn! Hit the **Next Turn** button and watch the highlighted Pokémon change to the next one in the initiative order.
 5. When you're ready, move on to the next round. When you've finished rerolling everybody's initiative, you can update everyone's initiative by double clicking them on the right, putting in their new numbers on the left, and hitting the **Update Pokémon** button (You can also update Pokémon stats at any other time). Then, when everyone is updated, hit the **New Round** button to reset everybody's needed successes back to 1.
 6. Repeat until your battle is finished!
+7. Click the **Reset** button to get a clean slate for the next battle.
 
 - If you want to manually update the initiative order for any reason, be they narrative or house-rules, simply click the **Move Up** or **Move Down** button at the bottom of the view on the right to move the selected Pokémon up or down respectively.
 ### Notes and to-do:
