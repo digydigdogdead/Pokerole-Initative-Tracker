@@ -79,7 +79,11 @@ namespace InitiativeTracker
             bool isInitiativeValid = int.TryParse(txtbx_InitiativeInput.Text, out int initiative);
             if (!isInitiativeValid || initiative < 1) return;
 
-            DataHandling.UpdatePokemon(pokemonToUpdate, initiative);
+            bool isDexterityValid = int.TryParse(txtbx_DexInput.Text, out int dexterity);
+
+            if (!isDexterityValid) DataHandling.UpdatePokemon(pokemonToUpdate, initiative);
+            else DataHandling.UpdatePokemon(pokemonToUpdate, initiative, dexterity);
+
             UpdateTracker();
         }
 

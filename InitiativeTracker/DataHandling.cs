@@ -25,9 +25,10 @@ namespace InitiativeTracker
             CurrentPokemon = ActivePokemon[0];
         }
 
-        public static void UpdatePokemon(Pokemon pokemon, int initiative)
+        public static void UpdatePokemon(Pokemon pokemon, int initiative, int? dexterity = null)
         {
             pokemon.Initiative = initiative;
+            if (dexterity != null) pokemon.Dexterity = dexterity;
         }
 
         public static Pokemon? GetPokemonByName(string name)
