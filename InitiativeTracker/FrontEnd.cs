@@ -69,6 +69,7 @@ namespace InitiativeTracker
         {
             txtbx_InitiativeInput.BackColor = SystemColors.Window;
             txtbx_Pokéinput.BackColor = SystemColors.Window;
+            txtbx_DexInput.BackColor = SystemColors.Window;
         }
 
         private void UpdateTracker(bool resort)
@@ -132,17 +133,36 @@ namespace InitiativeTracker
 
         private void btn_UpdatePokemon_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(txtbx_Pokéinput.Text) || String.IsNullOrEmpty(txtbx_Pokéinput.Text)) return;
+            ColorsReset();
+
+            bool areFieldsValid = ValidateInputFields();
+            if (!areFieldsValid) return;
 
             Pokemon? pokemonToUpdate = DataHandling.GetPokemonByName(txtbx_Pokéinput.Text);
-            if (pokemonToUpdate == null) return;
+            if (pokemonToUpdate == null) 
+            {
+                txtbx_Pokéinput.BackColor = Color.Salmon;
+                return; 
+            }
 
             bool isInitiativeValid = int.TryParse(txtbx_InitiativeInput.Text, out int initiative);
-            if (!isInitiativeValid || initiative < 1) return;
+            if (!isInitiativeValid || initiative < 1)
+            { 
+                txtbx_InitiativeInput.BackColor = Color.Salmon;
+                return; 
+            }
 
             bool isDexterityValid = int.TryParse(txtbx_DexInput.Text, out int dexterity);
 
-            if (!isDexterityValid) DataHandling.UpdatePokemon(pokemonToUpdate, initiative);
+            if (!isDexterityValid && String.IsNullOrEmpty(txtbx_DexInput.Text))
+            {
+                DataHandling.UpdatePokemon(pokemonToUpdate, initiative);
+            }
+            else if (!isDexterityValid)
+            {
+                txtbx_DexInput.BackColor = Color.Salmon;
+                DataHandling.UpdatePokemon(pokemonToUpdate, initiative);
+            }
             else DataHandling.UpdatePokemon(pokemonToUpdate, initiative, dexterity);
 
             UpdateTracker(true);
