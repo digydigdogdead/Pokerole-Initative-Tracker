@@ -85,6 +85,7 @@
             // 
             // txtbx_InitiativeInput
             // 
+            txtbx_InitiativeInput.BackColor = SystemColors.Window;
             txtbx_InitiativeInput.Location = new Point(88, 44);
             txtbx_InitiativeInput.Name = "txtbx_InitiativeInput";
             txtbx_InitiativeInput.Size = new Size(35, 27);

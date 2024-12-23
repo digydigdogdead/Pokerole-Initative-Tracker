@@ -9,15 +9,18 @@ namespace InitiativeTracker
 
         private void btn_AddPokemon_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(txtbx_InitiativeInput.Text) || String.IsNullOrEmpty(txtbx_Pokéinput.Text))
-            {
-                return;
-            }
+            ColorsReset();
+
+            bool areFieldsValid = ValidateInputFields();
+            if (!areFieldsValid) return;   
 
             bool isInitiativeValid = int.TryParse(txtbx_InitiativeInput.Text, out int initiative);
 
             if (!isInitiativeValid || initiative < 1)
-            { return; }
+            {
+                txtbx_InitiativeInput.BackColor = Color.Salmon;
+                return; 
+            }
 
             bool isDexterityValid = int.TryParse(txtbx_DexInput.Text, out int dexterity);
 
@@ -33,8 +36,39 @@ namespace InitiativeTracker
             }
             UpdateTracker(true);
 
+
             txtbx_DexInput.Text = "";
             txtbx_InitiativeInput.Text = "";
+        }
+
+        private bool ValidateInputFields()
+        {
+            if (String.IsNullOrEmpty(txtbx_InitiativeInput.Text) && String.IsNullOrEmpty(txtbx_Pokéinput.Text))
+            {
+                txtbx_InitiativeInput.BackColor = Color.Salmon;
+                txtbx_Pokéinput.BackColor = Color.Salmon;
+                return false;
+            }
+
+            if (String.IsNullOrEmpty(txtbx_InitiativeInput.Text))
+            {
+                txtbx_InitiativeInput.BackColor = Color.Salmon;
+                return false;
+            }
+
+            if (String.IsNullOrEmpty(txtbx_Pokéinput.Text))
+            {
+                txtbx_Pokéinput.BackColor = Color.Salmon;
+                return false;
+            }
+
+            return true;
+        }
+
+        private void ColorsReset()
+        {
+            txtbx_InitiativeInput.BackColor = SystemColors.Window;
+            txtbx_Pokéinput.BackColor = SystemColors.Window;
         }
 
         private void UpdateTracker(bool resort)
