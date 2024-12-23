@@ -32,18 +32,26 @@ namespace InitiativeTracker
                 Pokemon newPokemon = new(txtbx_Pokéinput.Text, initiative, dexterity);
                 DataHandling.ActivePokemon.Add(newPokemon);
             }
-            UpdateTracker(true);
+            UpdateTracker(true, GetTrickRoomStatus());
         }
 
-        private void UpdateTracker(bool resort)
+        private void UpdateTracker(bool resort, bool trickRoom)
         {
             lstvw_InitTracker.Items.Clear();
-            if (resort)
+            if (resort && !trickRoom)
             {
                 DataHandling.ActivePokemon = (from pokemon in DataHandling.ActivePokemon
                                               orderby pokemon.Initiative descending, pokemon.Dexterity descending
                                               select pokemon).ToList();
             }
+
+            if (resort && trickRoom)
+            {
+                DataHandling.ActivePokemon = (from pokemon in DataHandling.ActivePokemon
+                                              orderby pokemon.Initiative, pokemon.Dexterity
+                                              select pokemon).ToList();
+            }
+
             foreach (Pokemon pokemon in DataHandling.ActivePokemon)
             {
                 ListViewItem item = new ListViewItem(pokemon.Name);
@@ -58,12 +66,17 @@ namespace InitiativeTracker
             if (DataHandling.CurrentPokemon != null) HighlightCurrentMon();
         }
 
+        private bool GetTrickRoomStatus()
+        {
+            if (chkbx_TrickRoom.Checked) return true;
+            else return false;
+        }
         private void btn_NewRound_Click(object sender, EventArgs e)
         {
             if (DataHandling.ActivePokemon.Count == 0) return;
 
             DataHandling.NewRound();
-            UpdateTracker(true);
+            UpdateTracker(true, GetTrickRoomStatus());
             if (DataHandling.Round > 0) btn_NewRound.Text = "New Round";
             lbl_RoundCount.Text = DataHandling.Round.ToString();
             txtbx_Pokéinput.Text = DataHandling.CurrentPokemon.Name;
@@ -76,7 +89,7 @@ namespace InitiativeTracker
             Pokemon? selectedMon = DataHandling.GetPokemonByName(txtbx_Pokéinput.Text);
             if (selectedMon == null) return;
             DataHandling.UseAction(selectedMon);
-            UpdateTracker(false);
+            UpdateTracker(false, GetTrickRoomStatus());
         }
 
         private void btn_UpdatePokemon_Click(object sender, EventArgs e)
@@ -94,7 +107,7 @@ namespace InitiativeTracker
             if (!isDexterityValid) DataHandling.UpdatePokemon(pokemonToUpdate, initiative);
             else DataHandling.UpdatePokemon(pokemonToUpdate, initiative, dexterity);
 
-            UpdateTracker(true);
+            UpdateTracker(true, GetTrickRoomStatus());
         }
 
         private void lstvw_InitTracker_SelectedItemChanged(object sender, EventArgs e)
@@ -143,14 +156,14 @@ namespace InitiativeTracker
             if (faintedMon == null) return;
 
             DataHandling.TryFaintPokemon(faintedMon);
-            UpdateTracker(false);
+            UpdateTracker(false, GetTrickRoomStatus());
             UpdateTurnLabel();
         }
 
         private void btn_Reset_Click(object sender, EventArgs e)
         {
             DataHandling.Reset();
-            UpdateTracker(false);
+            UpdateTracker(false, GetTrickRoomStatus());
             lbl_RoundCount.Text = "0";
             lbl_Turn.Text = "Who's Turn Is It?";
             btn_NewRound.Text = "Start!";
@@ -163,7 +176,7 @@ namespace InitiativeTracker
             if (movingMon == null) return;
 
             DataHandling.MoveUp(movingMon);
-            UpdateTracker(false);
+            UpdateTracker(false, GetTrickRoomStatus());
         }
 
         private void btn_MoveDown_Click(object sender, EventArgs e)
@@ -172,7 +185,7 @@ namespace InitiativeTracker
             if (movingMon == null) return;
 
             DataHandling.MoveDown(movingMon);
-            UpdateTracker(false);
+            UpdateTracker(false, GetTrickRoomStatus());
         }
 
         private void btn_Help_Click(object sender, EventArgs e)
