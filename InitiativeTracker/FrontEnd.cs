@@ -32,11 +32,13 @@ namespace InitiativeTracker
                 Pokemon newPokemon = new(txtbx_Pokéinput.Text, initiative, dexterity);
                 DataHandling.ActivePokemon.Add(newPokemon);
             }
-            UpdateTracker(true, GetTrickRoomStatus());
+            UpdateTracker(true);
         }
 
-        private void UpdateTracker(bool resort, bool trickRoom)
+        private void UpdateTracker(bool resort)
         {
+            bool trickRoom = GetTrickRoomStatus();
+
             lstvw_InitTracker.Items.Clear();
             if (resort && !trickRoom)
             {
@@ -76,7 +78,7 @@ namespace InitiativeTracker
             if (DataHandling.ActivePokemon.Count == 0) return;
 
             DataHandling.NewRound();
-            UpdateTracker(true, GetTrickRoomStatus());
+            UpdateTracker(true);
             if (DataHandling.Round > 0) btn_NewRound.Text = "New Round";
             lbl_RoundCount.Text = DataHandling.Round.ToString();
             txtbx_Pokéinput.Text = DataHandling.CurrentPokemon.Name;
@@ -89,7 +91,7 @@ namespace InitiativeTracker
             Pokemon? selectedMon = DataHandling.GetPokemonByName(txtbx_Pokéinput.Text);
             if (selectedMon == null) return;
             DataHandling.UseAction(selectedMon);
-            UpdateTracker(false, GetTrickRoomStatus());
+            UpdateTracker(false);
         }
 
         private void btn_UpdatePokemon_Click(object sender, EventArgs e)
@@ -107,13 +109,13 @@ namespace InitiativeTracker
             if (!isDexterityValid) DataHandling.UpdatePokemon(pokemonToUpdate, initiative);
             else DataHandling.UpdatePokemon(pokemonToUpdate, initiative, dexterity);
 
-            UpdateTracker(true, GetTrickRoomStatus());
+            UpdateTracker(true);
         }
 
         private void CheckTrickRoomChanged(object sender, EventArgs e)
         {
             DataHandling.ActivePokemon.Reverse();
-            UpdateTracker(false, GetTrickRoomStatus());
+            UpdateTracker(false);
         }
 
         private void lstvw_InitTracker_SelectedItemChanged(object sender, EventArgs e)
@@ -162,14 +164,14 @@ namespace InitiativeTracker
             if (faintedMon == null) return;
 
             DataHandling.TryFaintPokemon(faintedMon);
-            UpdateTracker(false, GetTrickRoomStatus());
+            UpdateTracker(false);
             UpdateTurnLabel();
         }
 
         private void btn_Reset_Click(object sender, EventArgs e)
         {
             DataHandling.Reset();
-            UpdateTracker(false, GetTrickRoomStatus());
+            UpdateTracker(false);
             lbl_RoundCount.Text = "0";
             lbl_Turn.Text = "Who's Turn Is It?";
             btn_NewRound.Text = "Start!";
@@ -182,7 +184,7 @@ namespace InitiativeTracker
             if (movingMon == null) return;
 
             DataHandling.MoveUp(movingMon);
-            UpdateTracker(false, GetTrickRoomStatus());
+            UpdateTracker(false);
         }
 
         private void btn_MoveDown_Click(object sender, EventArgs e)
@@ -191,7 +193,7 @@ namespace InitiativeTracker
             if (movingMon == null) return;
 
             DataHandling.MoveDown(movingMon);
-            UpdateTracker(false, GetTrickRoomStatus());
+            UpdateTracker(false);
         }
 
         private void btn_Help_Click(object sender, EventArgs e)
