@@ -16,8 +16,7 @@ namespace InitiativeTracker
 
             bool isInitiativeValid = int.TryParse(txtbx_InitiativeInput.Text, out int initiative);
 
-            if (!isInitiativeValid ||
-                initiative < 1)
+            if (!isInitiativeValid || initiative < 1)
             { return; }
 
             bool isDexterityValid = int.TryParse(txtbx_DexInput.Text, out int dexterity);
@@ -33,6 +32,9 @@ namespace InitiativeTracker
                 DataHandling.ActivePokemon.Add(newPokemon);
             }
             UpdateTracker(true);
+
+            txtbx_DexInput.Text = "";
+            txtbx_InitiativeInput.Text = "";
         }
 
         private void UpdateTracker(bool resort)
