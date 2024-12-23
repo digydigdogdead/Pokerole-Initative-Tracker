@@ -294,6 +294,7 @@
             chkbx_TrickRoom.TabIndex = 21;
             chkbx_TrickRoom.Text = "Trick Room";
             chkbx_TrickRoom.UseVisualStyleBackColor = true;
+            chkbx_TrickRoom.CheckedChanged += CheckTrickRoomChanged;
             // 
             // FrontEnd
             // 

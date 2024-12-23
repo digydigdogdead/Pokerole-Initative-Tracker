@@ -110,6 +110,12 @@ namespace InitiativeTracker
             UpdateTracker(true, GetTrickRoomStatus());
         }
 
+        private void CheckTrickRoomChanged(object sender, EventArgs e)
+        {
+            DataHandling.ActivePokemon.Reverse();
+            UpdateTracker(false, GetTrickRoomStatus());
+        }
+
         private void lstvw_InitTracker_SelectedItemChanged(object sender, EventArgs e)
         {
             txtbx_Pokéinput.Text = lstvw_InitTracker.SelectedItems[0].Text;
