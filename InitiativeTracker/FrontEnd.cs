@@ -1,8 +1,8 @@
 namespace InitiativeTracker
 {
-    public partial class Form1 : Form
+    public partial class FrontEnd : Form
     {
-        public Form1()
+        public FrontEnd()
         {
             InitializeComponent();
         }

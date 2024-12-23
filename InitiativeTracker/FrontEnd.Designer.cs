@@ -1,6 +1,6 @@
 ﻿namespace InitiativeTracker
 {
-    partial class Form1
+    partial class FrontEnd
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrontEnd));
             lbl_Pokémon = new Label();
             txtbx_Pokéinput = new TextBox();
             lbl_Initiative = new Label();
