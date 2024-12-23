@@ -257,10 +257,15 @@ namespace InitiativeTracker
             string message = """
                             The "Add Pokemon" button adds a new Pokémon to the initative. Pokemon must have a name and Initiative, but dex is optional.
                             When you are ready to start the fight, press "Start!" to begin!
+
                             You can update pokemon Initative and Dex at the end of the round by double clicking them, putting in the new numbers, and hitting Update Pokemon.
                             Then click New Round to start the next round!
+
                             You can see how many Successes any given Pokémon needs to succeed in the "SN" column of the tracker.
+
                             You can move any pokemon up or down, update their details, faint them, or increase their needed successes by double clicking their name in the tracker and hitting the relevant button.
+
+                            You can check the "Trick Room" box to reverse the turn order.
                             """;
             MessageBox.Show(message, "Help");
         }
