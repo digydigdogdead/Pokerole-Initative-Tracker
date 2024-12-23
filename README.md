@@ -1,5 +1,5 @@
 # Pokérole Initiative Tracker
-You can download this app from Mediafire [here](https://www.mediafire.com/file/elzqw9iqh9eh9xf/InitiativeTracker+1.3.zip/file)
+You can download this app from Mediafire [here](https://www.mediafire.com/file/et04w8zicw9w4p8/InitiativeTracker+1.4.zip/file)
 
 [Pokérole](https://www.pokeroleproject.com) is an independent Pokémon TTRPG, and it's really good, but keeping track of whose turn it is during battles can get quite difficult, especially as you have to remember how many individual successes every Pokémon needs to do anything.
 Enter the **Pokérole Initiative Tracker**!
@@ -13,8 +13,8 @@ Enter the **Pokérole Initiative Tracker**!
 7. Click the **Reset** button to get a clean slate for the next battle.
 
 - If you want to manually update the initiative order for any reason, be they narrative or house-rules, simply click the **Move Up** or **Move Down** button at the bottom of the view on the right to move the selected Pokémon up or down respectively.
+- You can check the **Trick Room** check box to reverse the turn order.
 - In the bottom left corner is a little "?" icon you can click to access a pop-up that will tell you how all the buttons function.
   
 ### Notes and to-do:
-- There is a Pokémon move called Trick-Room which effectively reverses the turn order. There is currently no implementation for this, one is in the works.
 - Highlighting can disappear temporarily when selecting or editing Pokémon outside of their turn. 
