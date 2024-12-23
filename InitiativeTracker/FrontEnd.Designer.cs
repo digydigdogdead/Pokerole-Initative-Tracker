@@ -1,6 +1,6 @@
 ﻿namespace InitiativeTracker
 {
-    partial class Form1
+    partial class FrontEnd
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrontEnd));
             lbl_Pokémon = new Label();
             txtbx_Pokéinput = new TextBox();
             lbl_Initiative = new Label();
@@ -54,6 +54,7 @@
             txtbx_DexInput = new TextBox();
             btn_MoveUp = new Button();
             btn_MoveDown = new Button();
+            chkbx_TrickRoom = new CheckBox();
             panelTurn.SuspendLayout();
             SuspendLayout();
             // 
@@ -237,7 +238,7 @@
             // 
             btn_Reset.BackColor = SystemColors.ActiveCaptionText;
             btn_Reset.ForeColor = Color.FromArgb(192, 0, 0);
-            btn_Reset.Location = new Point(160, 229);
+            btn_Reset.Location = new Point(141, 229);
             btn_Reset.Name = "btn_Reset";
             btn_Reset.Size = new Size(94, 29);
             btn_Reset.TabIndex = 15;
@@ -283,11 +284,24 @@
             btn_MoveDown.UseVisualStyleBackColor = false;
             btn_MoveDown.Click += btn_MoveDown_Click;
             // 
-            // Form1
+            // chkbx_TrickRoom
+            // 
+            chkbx_TrickRoom.AutoSize = true;
+            chkbx_TrickRoom.CheckAlign = ContentAlignment.MiddleRight;
+            chkbx_TrickRoom.Location = new Point(130, 269);
+            chkbx_TrickRoom.Name = "chkbx_TrickRoom";
+            chkbx_TrickRoom.Size = new Size(105, 24);
+            chkbx_TrickRoom.TabIndex = 21;
+            chkbx_TrickRoom.Text = "Trick Room";
+            chkbx_TrickRoom.UseVisualStyleBackColor = true;
+            chkbx_TrickRoom.CheckedChanged += CheckTrickRoomChanged;
+            // 
+            // FrontEnd
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(716, 500);
+            Controls.Add(chkbx_TrickRoom);
             Controls.Add(btn_MoveDown);
             Controls.Add(btn_MoveUp);
             Controls.Add(txtbx_DexInput);
@@ -308,7 +322,7 @@
             Controls.Add(txtbx_Pokéinput);
             Controls.Add(lbl_Pokémon);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "Form1";
+            Name = "FrontEnd";
             Text = "PokeRole Initiative Tracker";
             panelTurn.ResumeLayout(false);
             panelTurn.PerformLayout();
@@ -343,5 +357,6 @@
         private Button btn_MoveUp;
         private Button btn_MoveDown;
         private Button btn_Help;
+        private CheckBox chkbx_TrickRoom;
     }
 }

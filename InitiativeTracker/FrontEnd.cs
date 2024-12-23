@@ -1,8 +1,8 @@
 namespace InitiativeTracker
 {
-    public partial class Form1 : Form
+    public partial class FrontEnd : Form
     {
-        public Form1()
+        public FrontEnd()
         {
             InitializeComponent();
         }
@@ -37,13 +37,23 @@ namespace InitiativeTracker
 
         private void UpdateTracker(bool resort)
         {
+            bool trickRoom = GetTrickRoomStatus();
+
             lstvw_InitTracker.Items.Clear();
-            if (resort)
+            if (resort && !trickRoom)
             {
                 DataHandling.ActivePokemon = (from pokemon in DataHandling.ActivePokemon
                                               orderby pokemon.Initiative descending, pokemon.Dexterity descending
                                               select pokemon).ToList();
             }
+
+            if (resort && trickRoom)
+            {
+                DataHandling.ActivePokemon = (from pokemon in DataHandling.ActivePokemon
+                                              orderby pokemon.Initiative, pokemon.Dexterity
+                                              select pokemon).ToList();
+            }
+
             foreach (Pokemon pokemon in DataHandling.ActivePokemon)
             {
                 ListViewItem item = new ListViewItem(pokemon.Name);
@@ -58,6 +68,11 @@ namespace InitiativeTracker
             if (DataHandling.CurrentPokemon != null) HighlightCurrentMon();
         }
 
+        private bool GetTrickRoomStatus()
+        {
+            if (chkbx_TrickRoom.Checked) return true;
+            else return false;
+        }
         private void btn_NewRound_Click(object sender, EventArgs e)
         {
             if (DataHandling.ActivePokemon.Count == 0) return;
@@ -95,6 +110,12 @@ namespace InitiativeTracker
             else DataHandling.UpdatePokemon(pokemonToUpdate, initiative, dexterity);
 
             UpdateTracker(true);
+        }
+
+        private void CheckTrickRoomChanged(object sender, EventArgs e)
+        {
+            DataHandling.ActivePokemon.Reverse();
+            UpdateTracker(false);
         }
 
         private void lstvw_InitTracker_SelectedItemChanged(object sender, EventArgs e)
