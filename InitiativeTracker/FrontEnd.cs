@@ -9,7 +9,7 @@ namespace InitiativeTracker
 
         private void btn_AddPokemon_Click(object sender, EventArgs e)
         {
-            ColorsReset();
+            InputColorsReset();
 
             bool areFieldsValid = ValidateInputFields();
             if (!areFieldsValid) return;   
@@ -65,7 +65,7 @@ namespace InitiativeTracker
             return true;
         }
 
-        private void ColorsReset()
+        private void InputColorsReset()
         {
             txtbx_InitiativeInput.BackColor = SystemColors.Window;
             txtbx_Pokéinput.BackColor = SystemColors.Window;
@@ -137,7 +137,7 @@ namespace InitiativeTracker
 
         private void btn_UpdatePokemon_Click(object sender, EventArgs e)
         {
-            ColorsReset();
+            InputColorsReset();
 
             bool areFieldsValid = ValidateInputFields();
             if (!areFieldsValid) return;
