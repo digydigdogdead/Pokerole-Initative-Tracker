@@ -186,7 +186,8 @@
             lstvw_InitTracker.TabIndex = 10;
             lstvw_InitTracker.UseCompatibleStateImageBehavior = false;
             lstvw_InitTracker.View = View.Details;
-            lstvw_InitTracker.ItemActivate += lstvw_InitTracker_SelectedItemChanged;
+            //lstvw_InitTracker.ItemActivate += lstvw_InitTracker_SelectedItemChanged;
+
             // 
             // ch_Pokemon
             // 
@@ -327,6 +328,7 @@
             dgv_Tracker.RowHeadersWidth = 51;
             dgv_Tracker.Size = new Size(529, 257);
             dgv_Tracker.TabIndex = 22;
+            dgv_Tracker.CellMouseClick += dgv_Tracker_CellMouseClick;
             // 
             // dgch_Pokemon
             // 

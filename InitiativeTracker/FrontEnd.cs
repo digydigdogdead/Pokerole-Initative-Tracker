@@ -1,3 +1,6 @@
+using System.Data;
+using System.Windows.Forms;
+
 namespace InitiativeTracker
 {
     public partial class FrontEnd : Form
@@ -12,14 +15,14 @@ namespace InitiativeTracker
             InputColorsReset();
 
             bool areFieldsValid = ValidateInputFields();
-            if (!areFieldsValid) return;   
+            if (!areFieldsValid) return;
 
             bool isInitiativeValid = int.TryParse(txtbx_InitiativeInput.Text, out int initiative);
 
             if (!isInitiativeValid || initiative < 1)
             {
                 txtbx_InitiativeInput.BackColor = Color.Salmon;
-                return; 
+                return;
             }
 
             bool isDexterityValid = int.TryParse(txtbx_DexInput.Text, out int dexterity);
@@ -143,17 +146,17 @@ namespace InitiativeTracker
             if (!areFieldsValid) return;
 
             Pokemon? pokemonToUpdate = DataHandling.GetPokemonByName(txtbx_Pokéinput.Text);
-            if (pokemonToUpdate == null) 
+            if (pokemonToUpdate == null)
             {
                 txtbx_Pokéinput.BackColor = Color.Salmon;
-                return; 
+                return;
             }
 
             bool isInitiativeValid = int.TryParse(txtbx_InitiativeInput.Text, out int initiative);
             if (!isInitiativeValid || initiative < 1)
-            { 
+            {
                 txtbx_InitiativeInput.BackColor = Color.Salmon;
-                return; 
+                return;
             }
 
             bool isDexterityValid = int.TryParse(txtbx_DexInput.Text, out int dexterity);
@@ -178,14 +181,37 @@ namespace InitiativeTracker
             UpdateTracker(false);
         }
 
-        private void lstvw_InitTracker_SelectedItemChanged(object sender, EventArgs e)
+/*        private void lstvw_InitTracker_SelectedItemChanged(object sender, EventArgs e)
         {
             txtbx_Pokéinput.Text = lstvw_InitTracker.SelectedItems[0].Text;
             lstvw_InitTracker.SelectedItems[0].Focused = false;
             txtbx_Pokéinput.Focus();
 
 
+        }*/
+        private void dgv_Tracker_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+            DataGridViewRow row = dgv_Tracker.Rows[e.RowIndex];
+
+            if (row.Cells[0].Value != null && row.Cells[1].Value != null)
+            {
+                string? pokemon = row.Cells[0].Value.ToString();
+                if (pokemon != null) txtbx_Pokéinput.Text = row.Cells[0].Value.ToString();
+
+                string? initiative = row.Cells[1].Value.ToString();
+                if (initiative != null) txtbx_InitiativeInput.Text = row.Cells[1].Value.ToString();
+
+                if (row.Cells[3].Value != null)
+                {
+                    string? dexterity = row.Cells[3].Value.ToString();
+                    if (dexterity != null) txtbx_DexInput.Text = row.Cells[3].Value.ToString();
+                }
+                else txtbx_DexInput.Text = "";
+            }
+
         }
+
 
         private void btn_NextTurn_Click(object sender, EventArgs e)
         {
@@ -273,5 +299,6 @@ namespace InitiativeTracker
                             """;
             MessageBox.Show(message, "Help");
         }
+
     }
 }
