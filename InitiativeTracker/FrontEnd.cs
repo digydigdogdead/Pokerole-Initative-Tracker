@@ -132,6 +132,15 @@ namespace InitiativeTracker
             lbl_RoundCount.Text = DataHandling.Round.ToString();
             txtbx_Pokéinput.Text = DataHandling.CurrentPokemon.Name;
             UpdateTurnLabel();
+
+            if (DataHandling.Round > 1)
+            {
+                foreach (DataGridViewRow pokemon in dgv_Tracker.Rows)
+                {
+                    pokemon.Cells[4].Value = false;
+                    pokemon.Cells[5].Value = false;
+                }
+            }
             HighlightCurrentMon();
         }
 
