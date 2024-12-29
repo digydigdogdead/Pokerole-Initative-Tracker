@@ -186,8 +186,6 @@
             lstvw_InitTracker.TabIndex = 10;
             lstvw_InitTracker.UseCompatibleStateImageBehavior = false;
             lstvw_InitTracker.View = View.Details;
-            //lstvw_InitTracker.ItemActivate += lstvw_InitTracker_SelectedItemChanged;
-
             // 
             // ch_Pokemon
             // 
@@ -321,6 +319,8 @@
             // 
             // dgv_Tracker
             // 
+            dgv_Tracker.AllowUserToAddRows = false;
+            dgv_Tracker.BackgroundColor = SystemColors.ControlLightLight;
             dgv_Tracker.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_Tracker.Columns.AddRange(new DataGridViewColumn[] { dgch_Pokemon, dgch_Initiative, dgch_SuccessesNeeded, dgch_Dexterity, dgch_Evaded, dgch_Clashed });
             dgv_Tracker.Location = new Point(594, 6);

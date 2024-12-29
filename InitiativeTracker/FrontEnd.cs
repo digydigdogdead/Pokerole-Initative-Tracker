@@ -181,14 +181,6 @@ namespace InitiativeTracker
             UpdateTracker(false);
         }
 
-/*        private void lstvw_InitTracker_SelectedItemChanged(object sender, EventArgs e)
-        {
-            txtbx_Pokéinput.Text = lstvw_InitTracker.SelectedItems[0].Text;
-            lstvw_InitTracker.SelectedItems[0].Focused = false;
-            txtbx_Pokéinput.Focus();
-
-
-        }*/
         private void dgv_Tracker_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
 
@@ -212,7 +204,6 @@ namespace InitiativeTracker
 
         }
 
-
         private void btn_NextTurn_Click(object sender, EventArgs e)
         {
             if (DataHandling.Round == 0) return;
@@ -234,13 +225,13 @@ namespace InitiativeTracker
         }
         private void HighlightCurrentMon()
         {
-            foreach (ListViewItem pokemon in lstvw_InitTracker.Items)
+            foreach (DataGridViewRow pokemon in dgv_Tracker.Rows)
             {
-                if (pokemon.Text == DataHandling.CurrentPokemon.Name)
+                if (pokemon.Cells[0].Value.ToString() == DataHandling.CurrentPokemon.Name)
                 {
-                    pokemon.BackColor = Color.LightGreen;
+                    pokemon.DefaultCellStyle.BackColor = Color.LightGreen;
                 }
-                else pokemon.BackColor = Color.Gray;
+                else pokemon.DefaultCellStyle.BackColor = Color.Gray;
             }
         }
 
