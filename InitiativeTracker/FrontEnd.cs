@@ -240,7 +240,7 @@ namespace InitiativeTracker
             DataHandling.Reset();
             UpdateTracker(false);
             lbl_RoundCount.Text = "0";
-            lbl_Turn.Text = "Who's Turn Is It?";
+            lbl_Turn.Text = "Whose Turn Is It?";
             btn_NewRound.Text = "Start!";
 
         }
