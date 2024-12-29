@@ -79,7 +79,6 @@ namespace InitiativeTracker
         {
             bool trickRoom = GetTrickRoomStatus();
 
-            //lstvw_InitTracker.Items.Clear();
             dgv_Tracker.Rows.Clear();
             if (resort && !trickRoom)
             {
@@ -97,16 +96,7 @@ namespace InitiativeTracker
 
             foreach (Pokemon pokemon in DataHandling.ActivePokemon)
             {
-                /*                ListViewItem item = new ListViewItem(pokemon.Name);
-                                item.SubItems.Add(pokemon.Initiative.ToString());
-                                item.SubItems.Add(pokemon.SuccessesNeeded.ToString());
-                                item.SubItems.Add(pokemon.Dexterity.ToString());
-
-
-                                lstvw_InitTracker.Items.Add(item);*/
-
                 dgv_Tracker.Rows.Add(pokemon.Name, pokemon.Initiative, pokemon.SuccessesNeeded, pokemon.Dexterity);
-
             }
 
             if (DataHandling.CurrentPokemon != null) HighlightCurrentMon();
