@@ -40,11 +40,6 @@
             panelTurn = new Panel();
             btn_Help = new Button();
             lbl_Turn = new Label();
-            lstvw_InitTracker = new ListView();
-            ch_Pokemon = new ColumnHeader();
-            ch_Initiative = new ColumnHeader();
-            ch_Successes = new ColumnHeader();
-            ch_Dexterity = new ColumnHeader();
             lbl_Round = new Label();
             lbl_RoundCount = new Label();
             btn_NextTurn = new Button();
@@ -55,7 +50,15 @@
             btn_MoveUp = new Button();
             btn_MoveDown = new Button();
             chkbx_TrickRoom = new CheckBox();
+            dgv_Tracker = new DataGridView();
+            dgch_Pokemon = new DataGridViewTextBoxColumn();
+            dgch_Initiative = new DataGridViewTextBoxColumn();
+            dgch_SuccessesNeeded = new DataGridViewTextBoxColumn();
+            dgch_Dexterity = new DataGridViewTextBoxColumn();
+            dgch_Evaded = new DataGridViewCheckBoxColumn();
+            dgch_Clashed = new DataGridViewCheckBoxColumn();
             panelTurn.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgv_Tracker).BeginInit();
             SuspendLayout();
             // 
             // lbl_Pokémon
@@ -142,13 +145,13 @@
             panelTurn.Controls.Add(lbl_Turn);
             panelTurn.Location = new Point(12, 309);
             panelTurn.Name = "panelTurn";
-            panelTurn.Size = new Size(692, 179);
+            panelTurn.Size = new Size(794, 179);
             panelTurn.TabIndex = 9;
             // 
             // btn_Help
             // 
             btn_Help.BackColor = Color.Transparent;
-            btn_Help.Location = new Point(666, 147);
+            btn_Help.Location = new Point(768, 147);
             btn_Help.Name = "btn_Help";
             btn_Help.Size = new Size(23, 29);
             btn_Help.TabIndex = 1;
@@ -160,39 +163,11 @@
             // 
             lbl_Turn.AutoSize = true;
             lbl_Turn.Font = new Font("Showcard Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_Turn.Location = new Point(221, 84);
+            lbl_Turn.Location = new Point(280, 81);
             lbl_Turn.Name = "lbl_Turn";
-            lbl_Turn.Size = new Size(217, 29);
+            lbl_Turn.Size = new Size(225, 29);
             lbl_Turn.TabIndex = 0;
-            lbl_Turn.Text = "Who's Turn Is It?";
-            // 
-            // lstvw_InitTracker
-            // 
-            lstvw_InitTracker.Columns.AddRange(new ColumnHeader[] { ch_Pokemon, ch_Initiative, ch_Successes, ch_Dexterity });
-            lstvw_InitTracker.Location = new Point(265, 6);
-            lstvw_InitTracker.Name = "lstvw_InitTracker";
-            lstvw_InitTracker.Size = new Size(439, 254);
-            lstvw_InitTracker.TabIndex = 10;
-            lstvw_InitTracker.UseCompatibleStateImageBehavior = false;
-            lstvw_InitTracker.View = View.Details;
-            lstvw_InitTracker.ItemActivate += lstvw_InitTracker_SelectedItemChanged;
-            // 
-            // ch_Pokemon
-            // 
-            ch_Pokemon.Text = "Pokémon";
-            ch_Pokemon.Width = 120;
-            // 
-            // ch_Initiative
-            // 
-            ch_Initiative.Text = "I";
-            // 
-            // ch_Successes
-            // 
-            ch_Successes.Text = "SN";
-            // 
-            // ch_Dexterity
-            // 
-            ch_Dexterity.Text = "D";
+            lbl_Turn.Text = "Whose Turn Is It?";
             // 
             // lbl_Round
             // 
@@ -266,7 +241,7 @@
             // btn_MoveUp
             // 
             btn_MoveUp.BackColor = Color.LightGreen;
-            btn_MoveUp.Location = new Point(281, 266);
+            btn_MoveUp.Location = new Point(321, 266);
             btn_MoveUp.Name = "btn_MoveUp";
             btn_MoveUp.Size = new Size(185, 29);
             btn_MoveUp.TabIndex = 18;
@@ -277,7 +252,7 @@
             // btn_MoveDown
             // 
             btn_MoveDown.BackColor = Color.Pink;
-            btn_MoveDown.Location = new Point(483, 266);
+            btn_MoveDown.Location = new Point(569, 266);
             btn_MoveDown.Name = "btn_MoveDown";
             btn_MoveDown.Size = new Size(185, 29);
             btn_MoveDown.TabIndex = 19;
@@ -297,11 +272,71 @@
             chkbx_TrickRoom.UseVisualStyleBackColor = true;
             chkbx_TrickRoom.CheckedChanged += CheckTrickRoomChanged;
             // 
+            // dgv_Tracker
+            // 
+            dgv_Tracker.AllowUserToAddRows = false;
+            dgv_Tracker.BackgroundColor = SystemColors.ControlLightLight;
+            dgv_Tracker.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv_Tracker.Columns.AddRange(new DataGridViewColumn[] { dgch_Pokemon, dgch_Initiative, dgch_SuccessesNeeded, dgch_Dexterity, dgch_Evaded, dgch_Clashed });
+            dgv_Tracker.Location = new Point(277, 3);
+            dgv_Tracker.Name = "dgv_Tracker";
+            dgv_Tracker.RowHeadersWidth = 51;
+            dgv_Tracker.Size = new Size(529, 257);
+            dgv_Tracker.TabIndex = 22;
+            dgv_Tracker.CellMouseClick += dgv_Tracker_CellMouseClick;
+            // 
+            // dgch_Pokemon
+            // 
+            dgch_Pokemon.HeaderText = "Pokémon";
+            dgch_Pokemon.MinimumWidth = 6;
+            dgch_Pokemon.Name = "dgch_Pokemon";
+            dgch_Pokemon.ReadOnly = true;
+            dgch_Pokemon.Width = 120;
+            // 
+            // dgch_Initiative
+            // 
+            dgch_Initiative.HeaderText = "Initiative";
+            dgch_Initiative.MinimumWidth = 6;
+            dgch_Initiative.Name = "dgch_Initiative";
+            dgch_Initiative.ReadOnly = true;
+            dgch_Initiative.Width = 70;
+            // 
+            // dgch_SuccessesNeeded
+            // 
+            dgch_SuccessesNeeded.HeaderText = "SN";
+            dgch_SuccessesNeeded.MinimumWidth = 6;
+            dgch_SuccessesNeeded.Name = "dgch_SuccessesNeeded";
+            dgch_SuccessesNeeded.ReadOnly = true;
+            dgch_SuccessesNeeded.Width = 40;
+            // 
+            // dgch_Dexterity
+            // 
+            dgch_Dexterity.HeaderText = "Dex";
+            dgch_Dexterity.MinimumWidth = 6;
+            dgch_Dexterity.Name = "dgch_Dexterity";
+            dgch_Dexterity.ReadOnly = true;
+            dgch_Dexterity.Width = 40;
+            // 
+            // dgch_Evaded
+            // 
+            dgch_Evaded.HeaderText = "Evaded?";
+            dgch_Evaded.MinimumWidth = 6;
+            dgch_Evaded.Name = "dgch_Evaded";
+            dgch_Evaded.Width = 70;
+            // 
+            // dgch_Clashed
+            // 
+            dgch_Clashed.HeaderText = "Clashed?";
+            dgch_Clashed.MinimumWidth = 6;
+            dgch_Clashed.Name = "dgch_Clashed";
+            dgch_Clashed.Width = 70;
+            // 
             // FrontEnd
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(716, 500);
+            ClientSize = new Size(813, 500);
+            Controls.Add(dgv_Tracker);
             Controls.Add(chkbx_TrickRoom);
             Controls.Add(btn_MoveDown);
             Controls.Add(btn_MoveUp);
@@ -312,7 +347,6 @@
             Controls.Add(btn_NextTurn);
             Controls.Add(lbl_RoundCount);
             Controls.Add(lbl_Round);
-            Controls.Add(lstvw_InitTracker);
             Controls.Add(panelTurn);
             Controls.Add(btn_AddPokemon);
             Controls.Add(btn_Faint);
@@ -327,6 +361,7 @@
             Text = "PokeRole Initiative Tracker";
             panelTurn.ResumeLayout(false);
             panelTurn.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgv_Tracker).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -343,21 +378,23 @@
         private Button btn_AddPokemon;
         private Panel panelTurn;
         private Label lbl_Turn;
-        private ListView lstvw_InitTracker;
-        private ColumnHeader ch_Pokemon;
-        private ColumnHeader ch_Initiative;
-        private ColumnHeader ch_Successes;
         private Label lbl_Round;
         private Label lbl_RoundCount;
         private Button btn_NextTurn;
         private Button btn_UpdatePokemon;
         private Button btn_Reset;
-        private ColumnHeader ch_Dexterity;
         private Label lbl_Dex;
         private TextBox txtbx_DexInput;
         private Button btn_MoveUp;
         private Button btn_MoveDown;
         private Button btn_Help;
         private CheckBox chkbx_TrickRoom;
+        private DataGridView dgv_Tracker;
+        private DataGridViewTextBoxColumn dgch_Pokemon;
+        private DataGridViewTextBoxColumn dgch_Initiative;
+        private DataGridViewTextBoxColumn dgch_SuccessesNeeded;
+        private DataGridViewTextBoxColumn dgch_Dexterity;
+        private DataGridViewCheckBoxColumn dgch_Evaded;
+        private DataGridViewCheckBoxColumn dgch_Clashed;
     }
 }
