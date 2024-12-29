@@ -20,6 +20,8 @@ namespace InitiativeTracker
             foreach (var pokemon in ActivePokemon)
             {
                 pokemon.SuccessesNeeded = 1;
+                pokemon.Clashed = false;
+                pokemon.Evaded = false;
             }
 
             CurrentPokemon = ActivePokemon[0];
