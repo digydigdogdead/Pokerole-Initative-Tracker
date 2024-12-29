@@ -163,7 +163,7 @@
             // 
             lbl_Turn.AutoSize = true;
             lbl_Turn.Font = new Font("Showcard Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_Turn.Location = new Point(265, 85);
+            lbl_Turn.Location = new Point(280, 81);
             lbl_Turn.Name = "lbl_Turn";
             lbl_Turn.Size = new Size(225, 29);
             lbl_Turn.TabIndex = 0;
