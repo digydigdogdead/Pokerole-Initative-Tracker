@@ -97,6 +97,7 @@ namespace InitiativeTracker
                 item.SubItems.Add(pokemon.Initiative.ToString());
                 item.SubItems.Add(pokemon.SuccessesNeeded.ToString());
                 item.SubItems.Add(pokemon.Dexterity.ToString());
+                
 
                 lstvw_InitTracker.Items.Add(item);
 

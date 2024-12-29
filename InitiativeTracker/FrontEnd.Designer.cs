@@ -45,6 +45,8 @@
             ch_Initiative = new ColumnHeader();
             ch_Successes = new ColumnHeader();
             ch_Dexterity = new ColumnHeader();
+            ch_Evaded = new ColumnHeader();
+            ch_Clashed = new ColumnHeader();
             lbl_Round = new Label();
             lbl_RoundCount = new Label();
             btn_NextTurn = new Button();
@@ -55,7 +57,14 @@
             btn_MoveUp = new Button();
             btn_MoveDown = new Button();
             chkbx_TrickRoom = new CheckBox();
+            dataGridView1 = new DataGridView();
+            dgch_Pokemon = new DataGridViewTextBoxColumn();
+            dgch_Initiative = new DataGridViewTextBoxColumn();
+            dgch_Dexterity = new DataGridViewTextBoxColumn();
+            dgch_Evaded = new DataGridViewCheckBoxColumn();
+            dgch_Clashed = new DataGridViewCheckBoxColumn();
             panelTurn.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // lbl_Pokémon
@@ -142,7 +151,7 @@
             panelTurn.Controls.Add(lbl_Turn);
             panelTurn.Location = new Point(12, 309);
             panelTurn.Name = "panelTurn";
-            panelTurn.Size = new Size(692, 179);
+            panelTurn.Size = new Size(933, 179);
             panelTurn.TabIndex = 9;
             // 
             // btn_Help
@@ -168,10 +177,11 @@
             // 
             // lstvw_InitTracker
             // 
-            lstvw_InitTracker.Columns.AddRange(new ColumnHeader[] { ch_Pokemon, ch_Initiative, ch_Successes, ch_Dexterity });
+            lstvw_InitTracker.Columns.AddRange(new ColumnHeader[] { ch_Pokemon, ch_Initiative, ch_Successes, ch_Dexterity, ch_Evaded, ch_Clashed });
             lstvw_InitTracker.Location = new Point(265, 6);
             lstvw_InitTracker.Name = "lstvw_InitTracker";
-            lstvw_InitTracker.Size = new Size(439, 254);
+            lstvw_InitTracker.OwnerDraw = true;
+            lstvw_InitTracker.Size = new Size(323, 254);
             lstvw_InitTracker.TabIndex = 10;
             lstvw_InitTracker.UseCompatibleStateImageBehavior = false;
             lstvw_InitTracker.View = View.Details;
@@ -193,6 +203,16 @@
             // ch_Dexterity
             // 
             ch_Dexterity.Text = "D";
+            // 
+            // ch_Evaded
+            // 
+            ch_Evaded.Text = "Evaded?";
+            ch_Evaded.Width = 100;
+            // 
+            // ch_Clashed
+            // 
+            ch_Clashed.Text = "Clashed?";
+            ch_Clashed.Width = 100;
             // 
             // lbl_Round
             // 
@@ -266,7 +286,7 @@
             // btn_MoveUp
             // 
             btn_MoveUp.BackColor = Color.LightGreen;
-            btn_MoveUp.Location = new Point(281, 266);
+            btn_MoveUp.Location = new Point(357, 266);
             btn_MoveUp.Name = "btn_MoveUp";
             btn_MoveUp.Size = new Size(185, 29);
             btn_MoveUp.TabIndex = 18;
@@ -277,7 +297,7 @@
             // btn_MoveDown
             // 
             btn_MoveDown.BackColor = Color.Pink;
-            btn_MoveDown.Location = new Point(483, 266);
+            btn_MoveDown.Location = new Point(661, 269);
             btn_MoveDown.Name = "btn_MoveDown";
             btn_MoveDown.Size = new Size(185, 29);
             btn_MoveDown.TabIndex = 19;
@@ -297,11 +317,60 @@
             chkbx_TrickRoom.UseVisualStyleBackColor = true;
             chkbx_TrickRoom.CheckedChanged += CheckTrickRoomChanged;
             // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { dgch_Pokemon, dgch_Initiative, dgch_Dexterity, dgch_Evaded, dgch_Clashed });
+            dataGridView1.Location = new Point(594, 6);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(529, 257);
+            dataGridView1.TabIndex = 22;
+            // 
+            // dgch_Pokemon
+            // 
+            dgch_Pokemon.HeaderText = "Pokémon";
+            dgch_Pokemon.MinimumWidth = 6;
+            dgch_Pokemon.Name = "dgch_Pokemon";
+            dgch_Pokemon.ReadOnly = true;
+            dgch_Pokemon.Width = 120;
+            // 
+            // dgch_Initiative
+            // 
+            dgch_Initiative.HeaderText = "Initiative";
+            dgch_Initiative.MinimumWidth = 6;
+            dgch_Initiative.Name = "dgch_Initiative";
+            dgch_Initiative.ReadOnly = true;
+            dgch_Initiative.Width = 70;
+            // 
+            // dgch_Dexterity
+            // 
+            dgch_Dexterity.HeaderText = "Dex";
+            dgch_Dexterity.MinimumWidth = 6;
+            dgch_Dexterity.Name = "dgch_Dexterity";
+            dgch_Dexterity.ReadOnly = true;
+            dgch_Dexterity.Width = 40;
+            // 
+            // dgch_Evaded
+            // 
+            dgch_Evaded.HeaderText = "Evaded?";
+            dgch_Evaded.MinimumWidth = 6;
+            dgch_Evaded.Name = "dgch_Evaded";
+            dgch_Evaded.Width = 70;
+            // 
+            // dgch_Clashed
+            // 
+            dgch_Clashed.HeaderText = "Clashed?";
+            dgch_Clashed.MinimumWidth = 6;
+            dgch_Clashed.Name = "dgch_Clashed";
+            dgch_Clashed.Width = 70;
+            // 
             // FrontEnd
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(716, 500);
+            ClientSize = new Size(1331, 500);
+            Controls.Add(dataGridView1);
             Controls.Add(chkbx_TrickRoom);
             Controls.Add(btn_MoveDown);
             Controls.Add(btn_MoveUp);
@@ -327,6 +396,7 @@
             Text = "PokeRole Initiative Tracker";
             panelTurn.ResumeLayout(false);
             panelTurn.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -359,5 +429,13 @@
         private Button btn_MoveDown;
         private Button btn_Help;
         private CheckBox chkbx_TrickRoom;
+        private ColumnHeader ch_Evaded;
+        private ColumnHeader ch_Clashed;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn dgch_Pokemon;
+        private DataGridViewTextBoxColumn dgch_Initiative;
+        private DataGridViewTextBoxColumn dgch_Dexterity;
+        private DataGridViewCheckBoxColumn dgch_Evaded;
+        private DataGridViewCheckBoxColumn dgch_Clashed;
     }
 }
