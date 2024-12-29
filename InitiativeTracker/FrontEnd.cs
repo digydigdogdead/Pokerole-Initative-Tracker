@@ -77,6 +77,8 @@ namespace InitiativeTracker
 
         private void UpdateTracker(bool resort)
         {
+            UpdatePokemonClashedEvaded();
+
             bool trickRoom = GetTrickRoomStatus();
 
             dgv_Tracker.Rows.Clear();
@@ -96,10 +98,23 @@ namespace InitiativeTracker
 
             foreach (Pokemon pokemon in DataHandling.ActivePokemon)
             {
-                dgv_Tracker.Rows.Add(pokemon.Name, pokemon.Initiative, pokemon.SuccessesNeeded, pokemon.Dexterity);
+                dgv_Tracker.Rows.Add(pokemon.Name, pokemon.Initiative, pokemon.SuccessesNeeded, pokemon.Dexterity, pokemon.Evaded, pokemon.Clashed);
             }
 
             if (DataHandling.CurrentPokemon != null) HighlightCurrentMon();
+        }
+
+        private void UpdatePokemonClashedEvaded()
+        {
+            foreach (DataGridViewRow row in dgv_Tracker.Rows)
+            {
+                Pokemon? pokemon = DataHandling.GetPokemonByName(row.Cells[0].Value.ToString());
+                if (pokemon != null)
+                {
+                    pokemon.Evaded = (bool)row.Cells[4].Value;
+                    pokemon.Clashed = (bool)row.Cells[5].Value;
+                }
+            }
         }
 
         private bool GetTrickRoomStatus()
