@@ -57,14 +57,15 @@
             btn_MoveUp = new Button();
             btn_MoveDown = new Button();
             chkbx_TrickRoom = new CheckBox();
-            dataGridView1 = new DataGridView();
+            dgv_Tracker = new DataGridView();
             dgch_Pokemon = new DataGridViewTextBoxColumn();
             dgch_Initiative = new DataGridViewTextBoxColumn();
+            dgch_SuccessesNeeded = new DataGridViewTextBoxColumn();
             dgch_Dexterity = new DataGridViewTextBoxColumn();
             dgch_Evaded = new DataGridViewCheckBoxColumn();
             dgch_Clashed = new DataGridViewCheckBoxColumn();
             panelTurn.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgv_Tracker).BeginInit();
             SuspendLayout();
             // 
             // lbl_Pokémon
@@ -317,15 +318,15 @@
             chkbx_TrickRoom.UseVisualStyleBackColor = true;
             chkbx_TrickRoom.CheckedChanged += CheckTrickRoomChanged;
             // 
-            // dataGridView1
+            // dgv_Tracker
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { dgch_Pokemon, dgch_Initiative, dgch_Dexterity, dgch_Evaded, dgch_Clashed });
-            dataGridView1.Location = new Point(594, 6);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(529, 257);
-            dataGridView1.TabIndex = 22;
+            dgv_Tracker.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv_Tracker.Columns.AddRange(new DataGridViewColumn[] { dgch_Pokemon, dgch_Initiative, dgch_SuccessesNeeded, dgch_Dexterity, dgch_Evaded, dgch_Clashed });
+            dgv_Tracker.Location = new Point(594, 6);
+            dgv_Tracker.Name = "dgv_Tracker";
+            dgv_Tracker.RowHeadersWidth = 51;
+            dgv_Tracker.Size = new Size(529, 257);
+            dgv_Tracker.TabIndex = 22;
             // 
             // dgch_Pokemon
             // 
@@ -342,6 +343,14 @@
             dgch_Initiative.Name = "dgch_Initiative";
             dgch_Initiative.ReadOnly = true;
             dgch_Initiative.Width = 70;
+            // 
+            // dgch_SuccessesNeeded
+            // 
+            dgch_SuccessesNeeded.HeaderText = "SN";
+            dgch_SuccessesNeeded.MinimumWidth = 6;
+            dgch_SuccessesNeeded.Name = "dgch_SuccessesNeeded";
+            dgch_SuccessesNeeded.ReadOnly = true;
+            dgch_SuccessesNeeded.Width = 40;
             // 
             // dgch_Dexterity
             // 
@@ -370,7 +379,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1331, 500);
-            Controls.Add(dataGridView1);
+            Controls.Add(dgv_Tracker);
             Controls.Add(chkbx_TrickRoom);
             Controls.Add(btn_MoveDown);
             Controls.Add(btn_MoveUp);
@@ -396,7 +405,7 @@
             Text = "PokeRole Initiative Tracker";
             panelTurn.ResumeLayout(false);
             panelTurn.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgv_Tracker).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -431,9 +440,10 @@
         private CheckBox chkbx_TrickRoom;
         private ColumnHeader ch_Evaded;
         private ColumnHeader ch_Clashed;
-        private DataGridView dataGridView1;
+        private DataGridView dgv_Tracker;
         private DataGridViewTextBoxColumn dgch_Pokemon;
         private DataGridViewTextBoxColumn dgch_Initiative;
+        private DataGridViewTextBoxColumn dgch_SuccessesNeeded;
         private DataGridViewTextBoxColumn dgch_Dexterity;
         private DataGridViewCheckBoxColumn dgch_Evaded;
         private DataGridViewCheckBoxColumn dgch_Clashed;
