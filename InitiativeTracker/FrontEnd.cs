@@ -262,6 +262,7 @@ namespace InitiativeTracker
 
         private void btn_MoveUp_Click(object sender, EventArgs e)
         {
+            UpdatePokemonClashedEvaded();
             Pokemon? movingMon = DataHandling.GetPokemonByName(txtbx_Pokéinput.Text);
             if (movingMon == null) return;
 
@@ -271,6 +272,7 @@ namespace InitiativeTracker
 
         private void btn_MoveDown_Click(object sender, EventArgs e)
         {
+            UpdatePokemonClashedEvaded();
             Pokemon? movingMon = DataHandling.GetPokemonByName(txtbx_Pokéinput.Text);
             if (movingMon == null) return;
 
