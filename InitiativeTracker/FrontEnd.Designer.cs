@@ -57,6 +57,7 @@
             dgch_Dexterity = new DataGridViewTextBoxColumn();
             dgch_Evaded = new DataGridViewCheckBoxColumn();
             dgch_Clashed = new DataGridViewCheckBoxColumn();
+            btn_Bulbapedia = new Button();
             panelTurn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Tracker).BeginInit();
             SuspendLayout();
@@ -141,6 +142,7 @@
             // panelTurn
             // 
             panelTurn.BackColor = SystemColors.ActiveCaption;
+            panelTurn.Controls.Add(btn_Bulbapedia);
             panelTurn.Controls.Add(btn_Help);
             panelTurn.Controls.Add(lbl_Turn);
             panelTurn.Location = new Point(12, 309);
@@ -331,6 +333,17 @@
             dgch_Clashed.Name = "dgch_Clashed";
             dgch_Clashed.Width = 70;
             // 
+            // btn_Bulbapedia
+            // 
+            btn_Bulbapedia.BackColor = Color.Chartreuse;
+            btn_Bulbapedia.Location = new Point(3, 147);
+            btn_Bulbapedia.Name = "btn_Bulbapedia";
+            btn_Bulbapedia.Size = new Size(94, 29);
+            btn_Bulbapedia.TabIndex = 2;
+            btn_Bulbapedia.Text = "Bulbapedia";
+            btn_Bulbapedia.UseVisualStyleBackColor = false;
+            btn_Bulbapedia.Click += btn_Bulbapedia_Click;
+            // 
             // FrontEnd
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -396,5 +409,6 @@
         private DataGridViewTextBoxColumn dgch_Dexterity;
         private DataGridViewCheckBoxColumn dgch_Evaded;
         private DataGridViewCheckBoxColumn dgch_Clashed;
+        private Button btn_Bulbapedia;
     }
 }
