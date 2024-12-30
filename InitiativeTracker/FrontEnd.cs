@@ -1,5 +1,6 @@
 using System.Data;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace InitiativeTracker
 {
@@ -307,5 +308,17 @@ namespace InitiativeTracker
             MessageBox.Show(message, "Help");
         }
 
+        private void btn_Bulbapedia_Click(object sender, EventArgs e)
+        {
+            string linkStart = "https://bulbapedia.bulbagarden.net/w/index.php?title=Special%3ASearch&search=";
+            string fullLink = linkStart + txtbx_Pokéinput.Text + "&fulltext=1";
+
+            ProcessStartInfo psInfo = new ProcessStartInfo
+            {
+                FileName = fullLink,
+                UseShellExecute = true
+            };
+            Process.Start(psInfo);
+        }
     }
 }
