@@ -38,6 +38,7 @@
             btn_Faint = new Button();
             btn_AddPokemon = new Button();
             panelTurn = new Panel();
+            btn_Bulbapedia = new Button();
             btn_Help = new Button();
             lbl_Turn = new Label();
             lbl_Round = new Label();
@@ -57,7 +58,7 @@
             dgch_Dexterity = new DataGridViewTextBoxColumn();
             dgch_Evaded = new DataGridViewCheckBoxColumn();
             dgch_Clashed = new DataGridViewCheckBoxColumn();
-            btn_Bulbapedia = new Button();
+            btn_pdb = new Button();
             panelTurn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Tracker).BeginInit();
             SuspendLayout();
@@ -142,6 +143,7 @@
             // panelTurn
             // 
             panelTurn.BackColor = SystemColors.ActiveCaption;
+            panelTurn.Controls.Add(btn_pdb);
             panelTurn.Controls.Add(btn_Bulbapedia);
             panelTurn.Controls.Add(btn_Help);
             panelTurn.Controls.Add(lbl_Turn);
@@ -149,6 +151,17 @@
             panelTurn.Name = "panelTurn";
             panelTurn.Size = new Size(1008, 179);
             panelTurn.TabIndex = 9;
+            // 
+            // btn_Bulbapedia
+            // 
+            btn_Bulbapedia.BackColor = Color.Chartreuse;
+            btn_Bulbapedia.Location = new Point(3, 147);
+            btn_Bulbapedia.Name = "btn_Bulbapedia";
+            btn_Bulbapedia.Size = new Size(108, 29);
+            btn_Bulbapedia.TabIndex = 2;
+            btn_Bulbapedia.Text = "Bulbapedia";
+            btn_Bulbapedia.UseVisualStyleBackColor = false;
+            btn_Bulbapedia.Click += btn_Bulbapedia_Click;
             // 
             // btn_Help
             // 
@@ -333,16 +346,15 @@
             dgch_Clashed.Name = "dgch_Clashed";
             dgch_Clashed.Width = 70;
             // 
-            // btn_Bulbapedia
+            // btn_pdb
             // 
-            btn_Bulbapedia.BackColor = Color.Chartreuse;
-            btn_Bulbapedia.Location = new Point(3, 147);
-            btn_Bulbapedia.Name = "btn_Bulbapedia";
-            btn_Bulbapedia.Size = new Size(94, 29);
-            btn_Bulbapedia.TabIndex = 2;
-            btn_Bulbapedia.Text = "Bulbapedia";
-            btn_Bulbapedia.UseVisualStyleBackColor = false;
-            btn_Bulbapedia.Click += btn_Bulbapedia_Click;
+            btn_pdb.BackColor = SystemColors.ActiveBorder;
+            btn_pdb.Location = new Point(3, 112);
+            btn_pdb.Name = "btn_pdb";
+            btn_pdb.Size = new Size(108, 29);
+            btn_pdb.TabIndex = 3;
+            btn_pdb.Text = "PokemonDB";
+            btn_pdb.UseVisualStyleBackColor = false;
             // 
             // FrontEnd
             // 
@@ -410,5 +422,6 @@
         private DataGridViewCheckBoxColumn dgch_Evaded;
         private DataGridViewCheckBoxColumn dgch_Clashed;
         private Button btn_Bulbapedia;
+        private Button btn_pdb;
     }
 }
