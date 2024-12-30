@@ -145,13 +145,13 @@
             panelTurn.Controls.Add(lbl_Turn);
             panelTurn.Location = new Point(12, 309);
             panelTurn.Name = "panelTurn";
-            panelTurn.Size = new Size(794, 179);
+            panelTurn.Size = new Size(1008, 179);
             panelTurn.TabIndex = 9;
             // 
             // btn_Help
             // 
             btn_Help.BackColor = Color.Transparent;
-            btn_Help.Location = new Point(768, 147);
+            btn_Help.Location = new Point(982, 147);
             btn_Help.Name = "btn_Help";
             btn_Help.Size = new Size(23, 29);
             btn_Help.TabIndex = 1;
@@ -163,7 +163,7 @@
             // 
             lbl_Turn.AutoSize = true;
             lbl_Turn.Font = new Font("Showcard Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_Turn.Location = new Point(280, 81);
+            lbl_Turn.Location = new Point(397, 85);
             lbl_Turn.Name = "lbl_Turn";
             lbl_Turn.Size = new Size(225, 29);
             lbl_Turn.TabIndex = 0;
@@ -241,7 +241,7 @@
             // btn_MoveUp
             // 
             btn_MoveUp.BackColor = Color.LightGreen;
-            btn_MoveUp.Location = new Point(321, 266);
+            btn_MoveUp.Location = new Point(396, 266);
             btn_MoveUp.Name = "btn_MoveUp";
             btn_MoveUp.Size = new Size(185, 29);
             btn_MoveUp.TabIndex = 18;
@@ -252,7 +252,7 @@
             // btn_MoveDown
             // 
             btn_MoveDown.BackColor = Color.Pink;
-            btn_MoveDown.Location = new Point(569, 266);
+            btn_MoveDown.Location = new Point(698, 266);
             btn_MoveDown.Name = "btn_MoveDown";
             btn_MoveDown.Size = new Size(185, 29);
             btn_MoveDown.TabIndex = 19;
@@ -281,7 +281,7 @@
             dgv_Tracker.Location = new Point(277, 3);
             dgv_Tracker.Name = "dgv_Tracker";
             dgv_Tracker.RowHeadersWidth = 51;
-            dgv_Tracker.Size = new Size(529, 257);
+            dgv_Tracker.Size = new Size(743, 257);
             dgv_Tracker.TabIndex = 22;
             dgv_Tracker.CellMouseClick += dgv_Tracker_CellMouseClick;
             // 
@@ -335,7 +335,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(813, 500);
+            ClientSize = new Size(1032, 500);
             Controls.Add(dgv_Tracker);
             Controls.Add(chkbx_TrickRoom);
             Controls.Add(btn_MoveDown);
