@@ -320,5 +320,18 @@ namespace InitiativeTracker
             };
             Process.Start(psInfo);
         }
+
+        private void btn_pdb_Click(object sender, EventArgs e)
+        {
+            string linkStart = "https://pokemondb.net/pokedex/";
+            string fullLink = linkStart + txtbx_Pokéinput.Text;
+
+            ProcessStartInfo psInfo = new ProcessStartInfo
+            {
+                FileName = fullLink,
+                UseShellExecute = true
+            };
+            Process.Start(psInfo);
+        }
     }
 }

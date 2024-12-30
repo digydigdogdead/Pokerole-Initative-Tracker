@@ -355,6 +355,7 @@
             btn_pdb.TabIndex = 3;
             btn_pdb.Text = "PokemonDB";
             btn_pdb.UseVisualStyleBackColor = false;
+            btn_pdb.Click += btn_pdb_Click;
             // 
             // FrontEnd
             // 
