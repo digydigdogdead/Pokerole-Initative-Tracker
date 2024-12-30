@@ -14,4 +14,5 @@ Enter the **Pokérole Initiative Tracker**!
 
 - If you want to manually update the initiative order for any reason, be they narrative or house-rules, simply click the **Move Up** or **Move Down** button at the bottom of the view on the right to move the selected Pokémon up or down respectively.
 - You can check the **Trick Room** check box to reverse the turn order.
-- In the bottom left corner is a little "?" icon you can click to access a pop-up that will tell you how all the buttons function.
+- In the bottom right corner is a little "?" icon you can click to access a pop-up that will tell you how all the buttons function.
+- In the bottom left corner are buttons to search the name of the selected Pokémon on Bulbapedia and PokemonDB for quick reference
