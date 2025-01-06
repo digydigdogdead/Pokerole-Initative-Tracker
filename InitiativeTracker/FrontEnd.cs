@@ -259,7 +259,7 @@ namespace InitiativeTracker
 
             DataHandling.TryFaintPokemon(faintedMon);
             UpdateTracker(false);
-            UpdateTurnLabel();
+            if (DataHandling.Round > 0) UpdateTurnLabel();
         }
 
         private void btn_Reset_Click(object sender, EventArgs e)
