@@ -53,17 +53,17 @@
             btn_MoveDown = new Button();
             chkbx_TrickRoom = new CheckBox();
             dgv_Tracker = new DataGridView();
+            btn_Clash = new Button();
+            btn_Evade = new Button();
+            btn_MoveUndo = new Button();
+            btn_ClashUndo = new Button();
+            btn_EvadeUndo = new Button();
             dgch_Pokemon = new DataGridViewTextBoxColumn();
             dgch_Initiative = new DataGridViewTextBoxColumn();
             dgch_SuccessesNeeded = new DataGridViewTextBoxColumn();
             dgch_Dexterity = new DataGridViewTextBoxColumn();
             dvch_Evaded = new DataGridViewTextBoxColumn();
             dvch_Clashed = new DataGridViewTextBoxColumn();
-            btn_Clash = new Button();
-            btn_Evade = new Button();
-            btn_MoveUndo = new Button();
-            btn_ClashUndo = new Button();
-            btn_EvadeUndo = new Button();
             panelTurn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Tracker).BeginInit();
             SuspendLayout();
@@ -273,7 +273,7 @@
             // btn_MoveUp
             // 
             btn_MoveUp.BackColor = Color.LightGreen;
-            btn_MoveUp.Location = new Point(390, 400);
+            btn_MoveUp.Location = new Point(409, 400);
             btn_MoveUp.Name = "btn_MoveUp";
             btn_MoveUp.Size = new Size(185, 29);
             btn_MoveUp.TabIndex = 18;
@@ -284,7 +284,7 @@
             // btn_MoveDown
             // 
             btn_MoveDown.BackColor = Color.Pink;
-            btn_MoveDown.Location = new Point(699, 400);
+            btn_MoveDown.Location = new Point(722, 400);
             btn_MoveDown.Name = "btn_MoveDown";
             btn_MoveDown.Size = new Size(185, 29);
             btn_MoveDown.TabIndex = 19;
@@ -316,52 +316,6 @@
             dgv_Tracker.Size = new Size(721, 391);
             dgv_Tracker.TabIndex = 22;
             dgv_Tracker.CellMouseClick += dgv_Tracker_CellMouseClick;
-            // 
-            // dgch_Pokemon
-            // 
-            dgch_Pokemon.HeaderText = "Pokémon";
-            dgch_Pokemon.MinimumWidth = 6;
-            dgch_Pokemon.Name = "dgch_Pokemon";
-            dgch_Pokemon.ReadOnly = true;
-            dgch_Pokemon.Width = 120;
-            // 
-            // dgch_Initiative
-            // 
-            dgch_Initiative.HeaderText = "Initiative";
-            dgch_Initiative.MinimumWidth = 6;
-            dgch_Initiative.Name = "dgch_Initiative";
-            dgch_Initiative.ReadOnly = true;
-            dgch_Initiative.Width = 70;
-            // 
-            // dgch_SuccessesNeeded
-            // 
-            dgch_SuccessesNeeded.HeaderText = "SN";
-            dgch_SuccessesNeeded.MinimumWidth = 6;
-            dgch_SuccessesNeeded.Name = "dgch_SuccessesNeeded";
-            dgch_SuccessesNeeded.ReadOnly = true;
-            dgch_SuccessesNeeded.Width = 40;
-            // 
-            // dgch_Dexterity
-            // 
-            dgch_Dexterity.HeaderText = "Dex";
-            dgch_Dexterity.MinimumWidth = 6;
-            dgch_Dexterity.Name = "dgch_Dexterity";
-            dgch_Dexterity.ReadOnly = true;
-            dgch_Dexterity.Width = 40;
-            // 
-            // dvch_Evaded
-            // 
-            dvch_Evaded.HeaderText = "Evaded?";
-            dvch_Evaded.MinimumWidth = 6;
-            dvch_Evaded.Name = "dvch_Evaded";
-            dvch_Evaded.Width = 125;
-            // 
-            // dvch_Clashed
-            // 
-            dvch_Clashed.HeaderText = "Clashed?";
-            dvch_Clashed.MinimumWidth = 6;
-            dvch_Clashed.Name = "dvch_Clashed";
-            dvch_Clashed.Width = 125;
             // 
             // btn_Clash
             // 
@@ -414,6 +368,52 @@
             btn_EvadeUndo.TabIndex = 27;
             btn_EvadeUndo.Text = "↶";
             btn_EvadeUndo.UseVisualStyleBackColor = false;
+            // 
+            // dgch_Pokemon
+            // 
+            dgch_Pokemon.HeaderText = "Pokémon";
+            dgch_Pokemon.MinimumWidth = 6;
+            dgch_Pokemon.Name = "dgch_Pokemon";
+            dgch_Pokemon.ReadOnly = true;
+            dgch_Pokemon.Width = 120;
+            // 
+            // dgch_Initiative
+            // 
+            dgch_Initiative.HeaderText = "Initiative";
+            dgch_Initiative.MinimumWidth = 6;
+            dgch_Initiative.Name = "dgch_Initiative";
+            dgch_Initiative.ReadOnly = true;
+            dgch_Initiative.Width = 70;
+            // 
+            // dgch_SuccessesNeeded
+            // 
+            dgch_SuccessesNeeded.HeaderText = "SN";
+            dgch_SuccessesNeeded.MinimumWidth = 6;
+            dgch_SuccessesNeeded.Name = "dgch_SuccessesNeeded";
+            dgch_SuccessesNeeded.ReadOnly = true;
+            dgch_SuccessesNeeded.Width = 40;
+            // 
+            // dgch_Dexterity
+            // 
+            dgch_Dexterity.HeaderText = "Dex";
+            dgch_Dexterity.MinimumWidth = 6;
+            dgch_Dexterity.Name = "dgch_Dexterity";
+            dgch_Dexterity.ReadOnly = true;
+            dgch_Dexterity.Width = 40;
+            // 
+            // dvch_Evaded
+            // 
+            dvch_Evaded.HeaderText = "Evaded?";
+            dvch_Evaded.MinimumWidth = 6;
+            dvch_Evaded.Name = "dvch_Evaded";
+            dvch_Evaded.Width = 75;
+            // 
+            // dvch_Clashed
+            // 
+            dvch_Clashed.HeaderText = "Clashed?";
+            dvch_Clashed.MinimumWidth = 6;
+            dvch_Clashed.Name = "dvch_Clashed";
+            dvch_Clashed.Width = 75;
             // 
             // FrontEnd
             // 
@@ -483,14 +483,14 @@
         private Button btn_pdb;
         private Button btn_Clash;
         private Button btn_Evade;
+        private Button btn_MoveUndo;
+        private Button btn_ClashUndo;
+        private Button btn_EvadeUndo;
         private DataGridViewTextBoxColumn dgch_Pokemon;
         private DataGridViewTextBoxColumn dgch_Initiative;
         private DataGridViewTextBoxColumn dgch_SuccessesNeeded;
         private DataGridViewTextBoxColumn dgch_Dexterity;
         private DataGridViewTextBoxColumn dvch_Evaded;
         private DataGridViewTextBoxColumn dvch_Clashed;
-        private Button btn_MoveUndo;
-        private Button btn_ClashUndo;
-        private Button btn_EvadeUndo;
     }
 }
