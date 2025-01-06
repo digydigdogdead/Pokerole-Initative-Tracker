@@ -34,7 +34,7 @@
             lbl_Initiative = new Label();
             txtbx_InitiativeInput = new TextBox();
             btn_NewRound = new Button();
-            btn_UseAction = new Button();
+            btn_UseMove = new Button();
             btn_Faint = new Button();
             btn_AddPokemon = new Button();
             panelTurn = new Panel();
@@ -59,6 +59,8 @@
             dgch_Dexterity = new DataGridViewTextBoxColumn();
             dgch_Evaded = new DataGridViewCheckBoxColumn();
             dgch_Clashed = new DataGridViewCheckBoxColumn();
+            btn_Clash = new Button();
+            btn_Evade = new Button();
             panelTurn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Tracker).BeginInit();
             SuspendLayout();
@@ -107,16 +109,17 @@
             btn_NewRound.UseVisualStyleBackColor = false;
             btn_NewRound.Click += btn_NewRound_Click;
             // 
-            // btn_UseAction
+            // btn_UseMove
             // 
-            btn_UseAction.BackColor = Color.Peru;
-            btn_UseAction.Location = new Point(12, 213);
-            btn_UseAction.Name = "btn_UseAction";
-            btn_UseAction.Size = new Size(135, 29);
-            btn_UseAction.TabIndex = 6;
-            btn_UseAction.Text = "Use Action";
-            btn_UseAction.UseVisualStyleBackColor = false;
-            btn_UseAction.Click += btn_UseAction_Click;
+            btn_UseMove.BackColor = Color.Peru;
+            btn_UseMove.Location = new Point(12, 213);
+            btn_UseMove.Name = "btn_UseMove";
+            btn_UseMove.Size = new Size(183, 38);
+            btn_UseMove.TabIndex = 6;
+            btn_UseMove.Text = "Use Move";
+            btn_UseMove.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btn_UseMove.UseVisualStyleBackColor = false;
+            btn_UseMove.Click += btn_UseAction_Click;
             // 
             // btn_Faint
             // 
@@ -240,7 +243,7 @@
             // 
             btn_Reset.BackColor = SystemColors.ActiveCaptionText;
             btn_Reset.ForeColor = Color.FromArgb(192, 0, 0);
-            btn_Reset.Location = new Point(199, 330);
+            btn_Reset.Location = new Point(15, 343);
             btn_Reset.Name = "btn_Reset";
             btn_Reset.Size = new Size(94, 29);
             btn_Reset.TabIndex = 15;
@@ -290,7 +293,7 @@
             // 
             chkbx_TrickRoom.AutoSize = true;
             chkbx_TrickRoom.CheckAlign = ContentAlignment.MiddleRight;
-            chkbx_TrickRoom.Location = new Point(188, 365);
+            chkbx_TrickRoom.Location = new Point(188, 348);
             chkbx_TrickRoom.Name = "chkbx_TrickRoom";
             chkbx_TrickRoom.Size = new Size(105, 24);
             chkbx_TrickRoom.TabIndex = 21;
@@ -357,11 +360,35 @@
             dgch_Clashed.Name = "dgch_Clashed";
             dgch_Clashed.Width = 70;
             // 
+            // btn_Clash
+            // 
+            btn_Clash.BackColor = Color.OrangeRed;
+            btn_Clash.Location = new Point(12, 257);
+            btn_Clash.Name = "btn_Clash";
+            btn_Clash.Size = new Size(183, 37);
+            btn_Clash.TabIndex = 23;
+            btn_Clash.Text = "Clash";
+            btn_Clash.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btn_Clash.UseVisualStyleBackColor = false;
+            // 
+            // btn_Evade
+            // 
+            btn_Evade.BackColor = Color.LightSeaGreen;
+            btn_Evade.Location = new Point(13, 300);
+            btn_Evade.Name = "btn_Evade";
+            btn_Evade.Size = new Size(183, 37);
+            btn_Evade.TabIndex = 24;
+            btn_Evade.Text = "Evade";
+            btn_Evade.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btn_Evade.UseVisualStyleBackColor = false;
+            // 
             // FrontEnd
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1032, 636);
+            Controls.Add(btn_Evade);
+            Controls.Add(btn_Clash);
             Controls.Add(dgv_Tracker);
             Controls.Add(chkbx_TrickRoom);
             Controls.Add(btn_MoveDown);
@@ -376,7 +403,7 @@
             Controls.Add(panelTurn);
             Controls.Add(btn_AddPokemon);
             Controls.Add(btn_Faint);
-            Controls.Add(btn_UseAction);
+            Controls.Add(btn_UseMove);
             Controls.Add(btn_NewRound);
             Controls.Add(txtbx_InitiativeInput);
             Controls.Add(lbl_Initiative);
@@ -399,7 +426,7 @@
         private Label lbl_Initiative;
         private TextBox txtbx_InitiativeInput;
         private Button btn_NewRound;
-        private Button btn_UseAction;
+        private Button btn_UseMove;
         private Button btn_Faint;
         private Button btn_AddPokemon;
         private Panel panelTurn;
@@ -424,5 +451,7 @@
         private DataGridViewCheckBoxColumn dgch_Clashed;
         private Button btn_Bulbapedia;
         private Button btn_pdb;
+        private Button btn_Clash;
+        private Button btn_Evade;
     }
 }
