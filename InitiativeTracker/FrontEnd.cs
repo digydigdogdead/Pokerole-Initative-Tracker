@@ -78,8 +78,6 @@ namespace InitiativeTracker
 
         private void UpdateTracker(bool resort)
         {
-            UpdatePokemonClashedEvaded();
-
             bool trickRoom = GetTrickRoomStatus();
 
             dgv_Tracker.Rows.Clear();
@@ -103,13 +101,13 @@ namespace InitiativeTracker
                 string clashed = pokemon.Clashed ? "YES" : "no";
 
                 dgv_Tracker.Rows.Add(pokemon.Name, pokemon.Initiative, pokemon.SuccessesNeeded, pokemon.Dexterity, evaded, clashed);
-                
+
             }
 
             if (DataHandling.CurrentPokemon != null) HighlightCurrentMon();
         }
 
-        private void UpdatePokemonClashedEvaded()
+/*        private void UpdatePokemonClashedEvaded()
         {
             foreach (DataGridViewRow row in dgv_Tracker.Rows)
             {
@@ -120,7 +118,7 @@ namespace InitiativeTracker
                     pokemon.Clashed = (bool)row.Cells[5].Value;
                 }
             }
-        }
+        }*/
 
         private bool GetTrickRoomStatus()
         {
@@ -276,7 +274,6 @@ namespace InitiativeTracker
 
         private void btn_MoveUp_Click(object sender, EventArgs e)
         {
-            UpdatePokemonClashedEvaded();
             Pokemon? movingMon = DataHandling.GetPokemonByName(txtbx_Pokéinput.Text);
             if (movingMon == null) return;
 
@@ -286,7 +283,6 @@ namespace InitiativeTracker
 
         private void btn_MoveDown_Click(object sender, EventArgs e)
         {
-            UpdatePokemonClashedEvaded();
             Pokemon? movingMon = DataHandling.GetPokemonByName(txtbx_Pokéinput.Text);
             if (movingMon == null) return;
 
@@ -336,6 +332,17 @@ namespace InitiativeTracker
                 UseShellExecute = true
             };
             Process.Start(psInfo);
+        }
+
+        private void btn_MoveUndo_Click(object sender, EventArgs e)
+        {
+            Pokemon? undoingMon = DataHandling.GetPokemonByName(txtbx_Pokéinput.Text);
+            if (undoingMon == null) return;
+
+            if (undoingMon.SuccessesNeeded == 0) return;
+
+            undoingMon.SuccessesNeeded--;
+            UpdateTracker(false);
         }
     }
 }

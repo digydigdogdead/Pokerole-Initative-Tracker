@@ -104,7 +104,7 @@
             // btn_NewRound
             // 
             btn_NewRound.BackColor = Color.Gold;
-            btn_NewRound.Location = new Point(74, 160);
+            btn_NewRound.Location = new Point(95, 160);
             btn_NewRound.Name = "btn_NewRound";
             btn_NewRound.Size = new Size(121, 47);
             btn_NewRound.TabIndex = 5;
@@ -348,6 +348,7 @@
             btn_MoveUndo.TabIndex = 25;
             btn_MoveUndo.Text = "↶";
             btn_MoveUndo.UseVisualStyleBackColor = false;
+            btn_MoveUndo.Click += btn_MoveUndo_Click;
             // 
             // btn_ClashUndo
             // 
