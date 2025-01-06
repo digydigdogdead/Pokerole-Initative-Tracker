@@ -53,17 +53,17 @@
             btn_MoveDown = new Button();
             chkbx_TrickRoom = new CheckBox();
             dgv_Tracker = new DataGridView();
-            btn_Clash = new Button();
-            btn_Evade = new Button();
-            btn_MoveUndo = new Button();
-            btn_ClashUndo = new Button();
-            btn_EvadeUndo = new Button();
             dgch_Pokemon = new DataGridViewTextBoxColumn();
             dgch_Initiative = new DataGridViewTextBoxColumn();
             dgch_SuccessesNeeded = new DataGridViewTextBoxColumn();
             dgch_Dexterity = new DataGridViewTextBoxColumn();
             dvch_Evaded = new DataGridViewTextBoxColumn();
             dvch_Clashed = new DataGridViewTextBoxColumn();
+            btn_Clash = new Button();
+            btn_Evade = new Button();
+            btn_MoveUndo = new Button();
+            btn_ClashUndo = new Button();
+            btn_EvadeUndo = new Button();
             panelTurn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Tracker).BeginInit();
             SuspendLayout();
@@ -204,19 +204,20 @@
             // lbl_Round
             // 
             lbl_Round.AutoSize = true;
-            lbl_Round.Location = new Point(13, 374);
+            lbl_Round.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_Round.Location = new Point(50, 392);
             lbl_Round.Name = "lbl_Round";
-            lbl_Round.Size = new Size(55, 20);
+            lbl_Round.Size = new Size(73, 28);
             lbl_Round.TabIndex = 11;
             lbl_Round.Text = "Round:";
             // 
             // lbl_RoundCount
             // 
             lbl_RoundCount.AutoSize = true;
-            lbl_RoundCount.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_RoundCount.Location = new Point(74, 365);
+            lbl_RoundCount.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_RoundCount.Location = new Point(140, 382);
             lbl_RoundCount.Name = "lbl_RoundCount";
-            lbl_RoundCount.Size = new Size(26, 31);
+            lbl_RoundCount.Size = new Size(34, 41);
             lbl_RoundCount.TabIndex = 12;
             lbl_RoundCount.Text = "0";
             // 
@@ -317,6 +318,52 @@
             dgv_Tracker.TabIndex = 22;
             dgv_Tracker.CellMouseClick += dgv_Tracker_CellMouseClick;
             // 
+            // dgch_Pokemon
+            // 
+            dgch_Pokemon.HeaderText = "Pokémon";
+            dgch_Pokemon.MinimumWidth = 6;
+            dgch_Pokemon.Name = "dgch_Pokemon";
+            dgch_Pokemon.ReadOnly = true;
+            dgch_Pokemon.Width = 120;
+            // 
+            // dgch_Initiative
+            // 
+            dgch_Initiative.HeaderText = "Initiative";
+            dgch_Initiative.MinimumWidth = 6;
+            dgch_Initiative.Name = "dgch_Initiative";
+            dgch_Initiative.ReadOnly = true;
+            dgch_Initiative.Width = 70;
+            // 
+            // dgch_SuccessesNeeded
+            // 
+            dgch_SuccessesNeeded.HeaderText = "SN";
+            dgch_SuccessesNeeded.MinimumWidth = 6;
+            dgch_SuccessesNeeded.Name = "dgch_SuccessesNeeded";
+            dgch_SuccessesNeeded.ReadOnly = true;
+            dgch_SuccessesNeeded.Width = 40;
+            // 
+            // dgch_Dexterity
+            // 
+            dgch_Dexterity.HeaderText = "Dex";
+            dgch_Dexterity.MinimumWidth = 6;
+            dgch_Dexterity.Name = "dgch_Dexterity";
+            dgch_Dexterity.ReadOnly = true;
+            dgch_Dexterity.Width = 40;
+            // 
+            // dvch_Evaded
+            // 
+            dvch_Evaded.HeaderText = "Evaded?";
+            dvch_Evaded.MinimumWidth = 6;
+            dvch_Evaded.Name = "dvch_Evaded";
+            dvch_Evaded.Width = 75;
+            // 
+            // dvch_Clashed
+            // 
+            dvch_Clashed.HeaderText = "Clashed?";
+            dvch_Clashed.MinimumWidth = 6;
+            dvch_Clashed.Name = "dvch_Clashed";
+            dvch_Clashed.Width = 75;
+            // 
             // btn_Clash
             // 
             btn_Clash.BackColor = Color.OrangeRed;
@@ -369,52 +416,6 @@
             btn_EvadeUndo.TabIndex = 27;
             btn_EvadeUndo.Text = "↶";
             btn_EvadeUndo.UseVisualStyleBackColor = false;
-            // 
-            // dgch_Pokemon
-            // 
-            dgch_Pokemon.HeaderText = "Pokémon";
-            dgch_Pokemon.MinimumWidth = 6;
-            dgch_Pokemon.Name = "dgch_Pokemon";
-            dgch_Pokemon.ReadOnly = true;
-            dgch_Pokemon.Width = 120;
-            // 
-            // dgch_Initiative
-            // 
-            dgch_Initiative.HeaderText = "Initiative";
-            dgch_Initiative.MinimumWidth = 6;
-            dgch_Initiative.Name = "dgch_Initiative";
-            dgch_Initiative.ReadOnly = true;
-            dgch_Initiative.Width = 70;
-            // 
-            // dgch_SuccessesNeeded
-            // 
-            dgch_SuccessesNeeded.HeaderText = "SN";
-            dgch_SuccessesNeeded.MinimumWidth = 6;
-            dgch_SuccessesNeeded.Name = "dgch_SuccessesNeeded";
-            dgch_SuccessesNeeded.ReadOnly = true;
-            dgch_SuccessesNeeded.Width = 40;
-            // 
-            // dgch_Dexterity
-            // 
-            dgch_Dexterity.HeaderText = "Dex";
-            dgch_Dexterity.MinimumWidth = 6;
-            dgch_Dexterity.Name = "dgch_Dexterity";
-            dgch_Dexterity.ReadOnly = true;
-            dgch_Dexterity.Width = 40;
-            // 
-            // dvch_Evaded
-            // 
-            dvch_Evaded.HeaderText = "Evaded?";
-            dvch_Evaded.MinimumWidth = 6;
-            dvch_Evaded.Name = "dvch_Evaded";
-            dvch_Evaded.Width = 75;
-            // 
-            // dvch_Clashed
-            // 
-            dvch_Clashed.HeaderText = "Clashed?";
-            dvch_Clashed.MinimumWidth = 6;
-            dvch_Clashed.Name = "dvch_Clashed";
-            dvch_Clashed.Width = 75;
             // 
             // FrontEnd
             // 
