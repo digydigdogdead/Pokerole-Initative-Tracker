@@ -386,6 +386,7 @@
             btn_Evade.Text = "Evade";
             btn_Evade.TextImageRelation = TextImageRelation.ImageBeforeText;
             btn_Evade.UseVisualStyleBackColor = false;
+            btn_Evade.Click += btn_Evade_Click;
             // 
             // btn_MoveUndo
             // 
@@ -418,6 +419,7 @@
             btn_EvadeUndo.TabIndex = 27;
             btn_EvadeUndo.Text = "↶";
             btn_EvadeUndo.UseVisualStyleBackColor = false;
+            btn_EvadeUndo.Click += btn_EvadeUndo_Click;
             // 
             // FrontEnd
             // 

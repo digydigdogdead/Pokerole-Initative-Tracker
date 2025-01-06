@@ -368,5 +368,29 @@ namespace InitiativeTracker
             unclashingMon.SuccessesNeeded--;
             UpdateTracker(false);
         }
+
+        private void btn_Evade_Click(object sender, EventArgs e)
+        {
+            Pokemon? evadingMon = DataHandling.GetPokemonByName(txtbx_Pokéinput.Text);
+            if (evadingMon == null) return;
+
+            if (evadingMon.Evaded) return;
+
+            evadingMon.Evaded = true;
+            evadingMon.SuccessesNeeded++;
+            UpdateTracker(false);
+        }
+
+        private void btn_EvadeUndo_Click(object sender, EventArgs e)
+        {
+            Pokemon? evadingMon = DataHandling.GetPokemonByName(txtbx_Pokéinput.Text);
+            if (evadingMon == null) return;
+
+            if (!evadingMon.Evaded) return;
+
+            evadingMon.Evaded = false;
+            evadingMon.SuccessesNeeded--;
+            UpdateTracker(false);
+        }
     }
 }
