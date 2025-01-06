@@ -107,18 +107,18 @@ namespace InitiativeTracker
             if (DataHandling.CurrentPokemon != null) HighlightCurrentMon();
         }
 
-/*        private void UpdatePokemonClashedEvaded()
-        {
-            foreach (DataGridViewRow row in dgv_Tracker.Rows)
-            {
-                Pokemon? pokemon = DataHandling.GetPokemonByName(row.Cells[0].Value.ToString());
-                if (pokemon != null)
+        /*        private void UpdatePokemonClashedEvaded()
                 {
-                    pokemon.Evaded = (bool)row.Cells[4].Value;
-                    pokemon.Clashed = (bool)row.Cells[5].Value;
-                }
-            }
-        }*/
+                    foreach (DataGridViewRow row in dgv_Tracker.Rows)
+                    {
+                        Pokemon? pokemon = DataHandling.GetPokemonByName(row.Cells[0].Value.ToString());
+                        if (pokemon != null)
+                        {
+                            pokemon.Evaded = (bool)row.Cells[4].Value;
+                            pokemon.Clashed = (bool)row.Cells[5].Value;
+                        }
+                    }
+                }*/
 
         private bool GetTrickRoomStatus()
         {
@@ -342,6 +342,17 @@ namespace InitiativeTracker
             if (undoingMon.SuccessesNeeded == 0) return;
 
             undoingMon.SuccessesNeeded--;
+            UpdateTracker(false);
+        }
+
+        private void btn_Clash_Click(object sender, EventArgs e)
+        {
+            Pokemon? clashingMon = DataHandling.GetPokemonByName(txtbx_Pokéinput.Text);
+            if (clashingMon == null) return;
+
+            if (clashingMon.Clashed) return;
+
+            clashingMon.Clashed = true;
             UpdateTracker(false);
         }
     }

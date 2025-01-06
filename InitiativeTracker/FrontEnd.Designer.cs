@@ -374,6 +374,7 @@
             btn_Clash.Text = "Clash";
             btn_Clash.TextImageRelation = TextImageRelation.ImageBeforeText;
             btn_Clash.UseVisualStyleBackColor = false;
+            btn_Clash.Click += btn_Clash_Click;
             // 
             // btn_Evade
             // 
