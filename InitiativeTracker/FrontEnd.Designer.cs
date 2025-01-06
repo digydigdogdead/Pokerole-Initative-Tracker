@@ -407,6 +407,7 @@
             btn_ClashUndo.TabIndex = 26;
             btn_ClashUndo.Text = "↶";
             btn_ClashUndo.UseVisualStyleBackColor = false;
+            btn_ClashUndo.Click += btn_ClashUndo_Click;
             // 
             // btn_EvadeUndo
             // 

@@ -353,6 +353,19 @@ namespace InitiativeTracker
             if (clashingMon.Clashed) return;
 
             clashingMon.Clashed = true;
+            clashingMon.SuccessesNeeded++;
+            UpdateTracker(false);
+        }
+
+        private void btn_ClashUndo_Click(object sender, EventArgs e)
+        {
+            Pokemon? unclashingMon = DataHandling.GetPokemonByName(txtbx_Pokéinput.Text);
+            if (unclashingMon == null) return;
+
+            if (!unclashingMon.Clashed) return;
+
+            unclashingMon.Clashed = false;
+            unclashingMon.SuccessesNeeded--;
             UpdateTracker(false);
         }
     }
