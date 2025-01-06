@@ -136,14 +136,6 @@ namespace InitiativeTracker
             txtbx_Pokéinput.Text = DataHandling.CurrentPokemon.Name;
             UpdateTurnLabel();
 
-            if (DataHandling.Round > 1)
-            {
-                foreach (DataGridViewRow pokemon in dgv_Tracker.Rows)
-                {
-                    pokemon.Cells[4].Value = false;
-                    pokemon.Cells[5].Value = false;
-                }
-            }
             HighlightCurrentMon();
         }
 
