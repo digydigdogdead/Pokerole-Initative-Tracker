@@ -99,7 +99,11 @@ namespace InitiativeTracker
 
             foreach (Pokemon pokemon in DataHandling.ActivePokemon)
             {
-                dgv_Tracker.Rows.Add(pokemon.Name, pokemon.Initiative, pokemon.SuccessesNeeded, pokemon.Dexterity, pokemon.Evaded, pokemon.Clashed);
+                string evaded = pokemon.Evaded ? "YES" : "no";
+                string clashed = pokemon.Clashed ? "YES" : "no";
+
+                dgv_Tracker.Rows.Add(pokemon.Name, pokemon.Initiative, pokemon.SuccessesNeeded, pokemon.Dexterity, evaded, clashed);
+                
             }
 
             if (DataHandling.CurrentPokemon != null) HighlightCurrentMon();
