@@ -307,12 +307,17 @@ namespace InitiativeTracker
                             The "Add Pokemon" button adds a new Pokémon to the initative. Pokemon must have a name and Initiative, but dex is optional.
                             When you are ready to start the fight, press "Start!" to begin!
 
-                            You can update pokemon Initative and Dex at the end of the round by double clicking them, putting in the new numbers, and hitting Update Pokemon.
+                            You can update pokemon Initative and Dex at the end of the round by clicking each Pokémon, putting in the new numbers, and hitting Update Pokemon.
                             Then click New Round to start the next round!
+
+                            Hit the Use Move button to increase the Successes Needed of the selected Pokémon by 1 (or the Undo button next to it to reduce the Successes Needed).
+
+                            Hit Clash to change the Clashed status of the selected Pokémon and increase its needed successes (or the undo button next to it to do the opposite).
+                            You can use the Evade buttons in the same way.
 
                             You can see how many Successes any given Pokémon needs to succeed in the "SN" column of the tracker.
 
-                            You can move any pokemon up or down, update their details, faint them, or increase their needed successes by double clicking their name in the tracker and hitting the relevant button.
+                            You can move any pokemon up or down, update their details, or faint them, by double clicking their name in the tracker and hitting the relevant button.
 
                             You can check the "Trick Room" box to reverse the turn order.
                             """;
