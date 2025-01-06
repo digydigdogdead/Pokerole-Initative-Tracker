@@ -251,13 +251,13 @@ namespace InitiativeTracker
             {
                 if (pokemon.Cells[4].Value.ToString() == "no")
                 {
-                    pokemon.Cells[4].Style.BackColor = Color.DimGray;
+                    pokemon.Cells[4].Style.BackColor = Color.LightGray;
                 }
                 else pokemon.Cells[4].Style.BackColor = Color.IndianRed;
 
                 if (pokemon.Cells[5].Value.ToString() == "no")
                 {
-                    pokemon.Cells[5].Style.BackColor = Color.DimGray;
+                    pokemon.Cells[5].Style.BackColor = Color.LightGray;
                 }
                 else pokemon.Cells[5].Style.BackColor = Color.IndianRed;
             }
