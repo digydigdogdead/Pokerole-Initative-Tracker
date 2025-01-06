@@ -53,14 +53,17 @@
             btn_MoveDown = new Button();
             chkbx_TrickRoom = new CheckBox();
             dgv_Tracker = new DataGridView();
-            btn_Clash = new Button();
-            btn_Evade = new Button();
             dgch_Pokemon = new DataGridViewTextBoxColumn();
             dgch_Initiative = new DataGridViewTextBoxColumn();
             dgch_SuccessesNeeded = new DataGridViewTextBoxColumn();
             dgch_Dexterity = new DataGridViewTextBoxColumn();
             dvch_Evaded = new DataGridViewTextBoxColumn();
             dvch_Clashed = new DataGridViewTextBoxColumn();
+            btn_Clash = new Button();
+            btn_Evade = new Button();
+            btn_MoveUndo = new Button();
+            btn_ClashUndo = new Button();
+            btn_EvadeUndo = new Button();
             panelTurn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Tracker).BeginInit();
             SuspendLayout();
@@ -114,7 +117,7 @@
             btn_UseMove.BackColor = Color.Peru;
             btn_UseMove.Location = new Point(12, 213);
             btn_UseMove.Name = "btn_UseMove";
-            btn_UseMove.Size = new Size(183, 38);
+            btn_UseMove.Size = new Size(204, 38);
             btn_UseMove.TabIndex = 6;
             btn_UseMove.Text = "Use Move";
             btn_UseMove.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -314,28 +317,6 @@
             dgv_Tracker.TabIndex = 22;
             dgv_Tracker.CellMouseClick += dgv_Tracker_CellMouseClick;
             // 
-            // btn_Clash
-            // 
-            btn_Clash.BackColor = Color.OrangeRed;
-            btn_Clash.Location = new Point(12, 257);
-            btn_Clash.Name = "btn_Clash";
-            btn_Clash.Size = new Size(183, 37);
-            btn_Clash.TabIndex = 23;
-            btn_Clash.Text = "Clash";
-            btn_Clash.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btn_Clash.UseVisualStyleBackColor = false;
-            // 
-            // btn_Evade
-            // 
-            btn_Evade.BackColor = Color.LightSeaGreen;
-            btn_Evade.Location = new Point(13, 300);
-            btn_Evade.Name = "btn_Evade";
-            btn_Evade.Size = new Size(183, 37);
-            btn_Evade.TabIndex = 24;
-            btn_Evade.Text = "Evade";
-            btn_Evade.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btn_Evade.UseVisualStyleBackColor = false;
-            // 
             // dgch_Pokemon
             // 
             dgch_Pokemon.HeaderText = "Pokémon";
@@ -382,11 +363,66 @@
             dvch_Clashed.Name = "dvch_Clashed";
             dvch_Clashed.Width = 125;
             // 
+            // btn_Clash
+            // 
+            btn_Clash.BackColor = Color.OrangeRed;
+            btn_Clash.Location = new Point(12, 257);
+            btn_Clash.Name = "btn_Clash";
+            btn_Clash.Size = new Size(204, 37);
+            btn_Clash.TabIndex = 23;
+            btn_Clash.Text = "Clash";
+            btn_Clash.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btn_Clash.UseVisualStyleBackColor = false;
+            // 
+            // btn_Evade
+            // 
+            btn_Evade.BackColor = Color.LightSeaGreen;
+            btn_Evade.Location = new Point(13, 300);
+            btn_Evade.Name = "btn_Evade";
+            btn_Evade.Size = new Size(203, 37);
+            btn_Evade.TabIndex = 24;
+            btn_Evade.Text = "Evade";
+            btn_Evade.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btn_Evade.UseVisualStyleBackColor = false;
+            // 
+            // btn_MoveUndo
+            // 
+            btn_MoveUndo.BackColor = SystemColors.AppWorkspace;
+            btn_MoveUndo.Location = new Point(234, 218);
+            btn_MoveUndo.Name = "btn_MoveUndo";
+            btn_MoveUndo.Size = new Size(36, 29);
+            btn_MoveUndo.TabIndex = 25;
+            btn_MoveUndo.Text = "↶";
+            btn_MoveUndo.UseVisualStyleBackColor = false;
+            // 
+            // btn_ClashUndo
+            // 
+            btn_ClashUndo.BackColor = SystemColors.AppWorkspace;
+            btn_ClashUndo.Location = new Point(234, 261);
+            btn_ClashUndo.Name = "btn_ClashUndo";
+            btn_ClashUndo.Size = new Size(36, 29);
+            btn_ClashUndo.TabIndex = 26;
+            btn_ClashUndo.Text = "↶";
+            btn_ClashUndo.UseVisualStyleBackColor = false;
+            // 
+            // btn_EvadeUndo
+            // 
+            btn_EvadeUndo.BackColor = SystemColors.AppWorkspace;
+            btn_EvadeUndo.Location = new Point(234, 304);
+            btn_EvadeUndo.Name = "btn_EvadeUndo";
+            btn_EvadeUndo.Size = new Size(36, 29);
+            btn_EvadeUndo.TabIndex = 27;
+            btn_EvadeUndo.Text = "↶";
+            btn_EvadeUndo.UseVisualStyleBackColor = false;
+            // 
             // FrontEnd
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1032, 636);
+            Controls.Add(btn_EvadeUndo);
+            Controls.Add(btn_ClashUndo);
+            Controls.Add(btn_MoveUndo);
             Controls.Add(btn_Evade);
             Controls.Add(btn_Clash);
             Controls.Add(dgv_Tracker);
@@ -453,5 +489,8 @@
         private DataGridViewTextBoxColumn dgch_Dexterity;
         private DataGridViewTextBoxColumn dvch_Evaded;
         private DataGridViewTextBoxColumn dvch_Clashed;
+        private Button btn_MoveUndo;
+        private Button btn_ClashUndo;
+        private Button btn_EvadeUndo;
     }
 }
