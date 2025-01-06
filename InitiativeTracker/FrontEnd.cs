@@ -105,6 +105,7 @@ namespace InitiativeTracker
             }
 
             if (DataHandling.CurrentPokemon != null) HighlightCurrentMon();
+            ColourClashedAndEvaded();
         }
 
         /*        private void UpdatePokemonClashedEvaded()
@@ -241,6 +242,24 @@ namespace InitiativeTracker
                     pokemon.DefaultCellStyle.BackColor = Color.LightGreen;
                 }
                 else pokemon.DefaultCellStyle.BackColor = Color.Gray;
+            }
+        }
+
+        private void ColourClashedAndEvaded()
+        {
+            foreach (DataGridViewRow pokemon in dgv_Tracker.Rows)
+            {
+                if (pokemon.Cells[4].Value.ToString() == "no")
+                {
+                    pokemon.Cells[4].Style.BackColor = Color.DimGray;
+                }
+                else pokemon.Cells[4].Style.BackColor = Color.IndianRed;
+
+                if (pokemon.Cells[5].Value.ToString() == "no")
+                {
+                    pokemon.Cells[5].Style.BackColor = Color.DimGray;
+                }
+                else pokemon.Cells[5].Style.BackColor = Color.IndianRed;
             }
         }
 
