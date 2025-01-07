@@ -237,7 +237,7 @@ namespace InitiativeTracker
             Pokemon? undoingMon = DataHandling.GetPokemonByName(txtbx_Pokéinput.Text);
             if (undoingMon == null) return;
 
-            if (undoingMon.SuccessesNeeded == 0) return;
+            if (undoingMon.SuccessesNeeded == 1) return;
 
             undoingMon.SuccessesNeeded--;
             UpdateTracker(false);
