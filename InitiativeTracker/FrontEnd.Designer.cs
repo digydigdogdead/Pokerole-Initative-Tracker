@@ -34,10 +34,11 @@
             lbl_Initiative = new Label();
             txtbx_InitiativeInput = new TextBox();
             btn_NewRound = new Button();
-            btn_UseAction = new Button();
+            btn_UseMove = new Button();
             btn_Faint = new Button();
             btn_AddPokemon = new Button();
             panelTurn = new Panel();
+            btn_pdb = new Button();
             btn_Bulbapedia = new Button();
             btn_Help = new Button();
             lbl_Turn = new Label();
@@ -56,9 +57,13 @@
             dgch_Initiative = new DataGridViewTextBoxColumn();
             dgch_SuccessesNeeded = new DataGridViewTextBoxColumn();
             dgch_Dexterity = new DataGridViewTextBoxColumn();
-            dgch_Evaded = new DataGridViewCheckBoxColumn();
-            dgch_Clashed = new DataGridViewCheckBoxColumn();
-            btn_pdb = new Button();
+            dvch_Evaded = new DataGridViewTextBoxColumn();
+            dvch_Clashed = new DataGridViewTextBoxColumn();
+            btn_Clash = new Button();
+            btn_Evade = new Button();
+            btn_MoveUndo = new Button();
+            btn_ClashUndo = new Button();
+            btn_EvadeUndo = new Button();
             panelTurn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Tracker).BeginInit();
             SuspendLayout();
@@ -76,7 +81,7 @@
             // 
             txtbx_Pokéinput.Location = new Point(88, 6);
             txtbx_Pokéinput.Name = "txtbx_Pokéinput";
-            txtbx_Pokéinput.Size = new Size(171, 27);
+            txtbx_Pokéinput.Size = new Size(205, 27);
             txtbx_Pokéinput.TabIndex = 1;
             // 
             // lbl_Initiative
@@ -99,31 +104,32 @@
             // btn_NewRound
             // 
             btn_NewRound.BackColor = Color.Gold;
-            btn_NewRound.Location = new Point(12, 135);
+            btn_NewRound.Location = new Point(95, 160);
             btn_NewRound.Name = "btn_NewRound";
-            btn_NewRound.Size = new Size(94, 29);
+            btn_NewRound.Size = new Size(121, 47);
             btn_NewRound.TabIndex = 5;
             btn_NewRound.Text = "Start!";
             btn_NewRound.UseVisualStyleBackColor = false;
             btn_NewRound.Click += btn_NewRound_Click;
             // 
-            // btn_UseAction
+            // btn_UseMove
             // 
-            btn_UseAction.BackColor = Color.Peru;
-            btn_UseAction.Location = new Point(12, 89);
-            btn_UseAction.Name = "btn_UseAction";
-            btn_UseAction.Size = new Size(94, 29);
-            btn_UseAction.TabIndex = 6;
-            btn_UseAction.Text = "Use Action";
-            btn_UseAction.UseVisualStyleBackColor = false;
-            btn_UseAction.Click += btn_UseAction_Click;
+            btn_UseMove.BackColor = Color.Peru;
+            btn_UseMove.Location = new Point(12, 213);
+            btn_UseMove.Name = "btn_UseMove";
+            btn_UseMove.Size = new Size(204, 38);
+            btn_UseMove.TabIndex = 6;
+            btn_UseMove.Text = "Use Move";
+            btn_UseMove.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btn_UseMove.UseVisualStyleBackColor = false;
+            btn_UseMove.Click += btn_UseAction_Click;
             // 
             // btn_Faint
             // 
             btn_Faint.BackColor = Color.Red;
-            btn_Faint.Location = new Point(13, 181);
+            btn_Faint.Location = new Point(12, 125);
             btn_Faint.Name = "btn_Faint";
-            btn_Faint.Size = new Size(94, 29);
+            btn_Faint.Size = new Size(135, 29);
             btn_Faint.TabIndex = 7;
             btn_Faint.Text = "Faint";
             btn_Faint.UseVisualStyleBackColor = false;
@@ -132,9 +138,9 @@
             // btn_AddPokemon
             // 
             btn_AddPokemon.BackColor = Color.LawnGreen;
-            btn_AddPokemon.Location = new Point(119, 89);
+            btn_AddPokemon.Location = new Point(12, 90);
             btn_AddPokemon.Name = "btn_AddPokemon";
-            btn_AddPokemon.Size = new Size(140, 29);
+            btn_AddPokemon.Size = new Size(135, 29);
             btn_AddPokemon.TabIndex = 8;
             btn_AddPokemon.Text = "Add Pokémon";
             btn_AddPokemon.UseVisualStyleBackColor = false;
@@ -147,10 +153,21 @@
             panelTurn.Controls.Add(btn_Bulbapedia);
             panelTurn.Controls.Add(btn_Help);
             panelTurn.Controls.Add(lbl_Turn);
-            panelTurn.Location = new Point(12, 309);
+            panelTurn.Location = new Point(12, 445);
             panelTurn.Name = "panelTurn";
             panelTurn.Size = new Size(1008, 179);
             panelTurn.TabIndex = 9;
+            // 
+            // btn_pdb
+            // 
+            btn_pdb.BackColor = SystemColors.ActiveBorder;
+            btn_pdb.Location = new Point(3, 112);
+            btn_pdb.Name = "btn_pdb";
+            btn_pdb.Size = new Size(108, 29);
+            btn_pdb.TabIndex = 3;
+            btn_pdb.Text = "PokemonDB";
+            btn_pdb.UseVisualStyleBackColor = false;
+            btn_pdb.Click += btn_pdb_Click;
             // 
             // btn_Bulbapedia
             // 
@@ -187,26 +204,27 @@
             // lbl_Round
             // 
             lbl_Round.AutoSize = true;
-            lbl_Round.Location = new Point(30, 238);
+            lbl_Round.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_Round.Location = new Point(50, 392);
             lbl_Round.Name = "lbl_Round";
-            lbl_Round.Size = new Size(55, 20);
+            lbl_Round.Size = new Size(73, 28);
             lbl_Round.TabIndex = 11;
             lbl_Round.Text = "Round:";
             // 
             // lbl_RoundCount
             // 
             lbl_RoundCount.AutoSize = true;
-            lbl_RoundCount.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_RoundCount.Location = new Point(91, 229);
+            lbl_RoundCount.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_RoundCount.Location = new Point(140, 382);
             lbl_RoundCount.Name = "lbl_RoundCount";
-            lbl_RoundCount.Size = new Size(26, 31);
+            lbl_RoundCount.Size = new Size(34, 41);
             lbl_RoundCount.TabIndex = 12;
             lbl_RoundCount.Text = "0";
             // 
             // btn_NextTurn
             // 
             btn_NextTurn.BackColor = Color.PapayaWhip;
-            btn_NextTurn.Location = new Point(119, 181);
+            btn_NextTurn.Location = new Point(153, 125);
             btn_NextTurn.Name = "btn_NextTurn";
             btn_NextTurn.Size = new Size(140, 29);
             btn_NextTurn.TabIndex = 13;
@@ -217,7 +235,7 @@
             // btn_UpdatePokemon
             // 
             btn_UpdatePokemon.BackColor = Color.GreenYellow;
-            btn_UpdatePokemon.Location = new Point(119, 135);
+            btn_UpdatePokemon.Location = new Point(153, 90);
             btn_UpdatePokemon.Name = "btn_UpdatePokemon";
             btn_UpdatePokemon.Size = new Size(140, 29);
             btn_UpdatePokemon.TabIndex = 14;
@@ -229,7 +247,7 @@
             // 
             btn_Reset.BackColor = SystemColors.ActiveCaptionText;
             btn_Reset.ForeColor = Color.FromArgb(192, 0, 0);
-            btn_Reset.Location = new Point(141, 229);
+            btn_Reset.Location = new Point(15, 343);
             btn_Reset.Name = "btn_Reset";
             btn_Reset.Size = new Size(94, 29);
             btn_Reset.TabIndex = 15;
@@ -240,7 +258,7 @@
             // lbl_Dex
             // 
             lbl_Dex.AutoSize = true;
-            lbl_Dex.Location = new Point(141, 47);
+            lbl_Dex.Location = new Point(178, 47);
             lbl_Dex.Name = "lbl_Dex";
             lbl_Dex.Size = new Size(38, 20);
             lbl_Dex.TabIndex = 16;
@@ -248,7 +266,7 @@
             // 
             // txtbx_DexInput
             // 
-            txtbx_DexInput.Location = new Point(185, 47);
+            txtbx_DexInput.Location = new Point(222, 47);
             txtbx_DexInput.Name = "txtbx_DexInput";
             txtbx_DexInput.Size = new Size(37, 27);
             txtbx_DexInput.TabIndex = 17;
@@ -256,7 +274,7 @@
             // btn_MoveUp
             // 
             btn_MoveUp.BackColor = Color.LightGreen;
-            btn_MoveUp.Location = new Point(396, 266);
+            btn_MoveUp.Location = new Point(409, 400);
             btn_MoveUp.Name = "btn_MoveUp";
             btn_MoveUp.Size = new Size(185, 29);
             btn_MoveUp.TabIndex = 18;
@@ -267,7 +285,7 @@
             // btn_MoveDown
             // 
             btn_MoveDown.BackColor = Color.Pink;
-            btn_MoveDown.Location = new Point(698, 266);
+            btn_MoveDown.Location = new Point(722, 400);
             btn_MoveDown.Name = "btn_MoveDown";
             btn_MoveDown.Size = new Size(185, 29);
             btn_MoveDown.TabIndex = 19;
@@ -279,7 +297,7 @@
             // 
             chkbx_TrickRoom.AutoSize = true;
             chkbx_TrickRoom.CheckAlign = ContentAlignment.MiddleRight;
-            chkbx_TrickRoom.Location = new Point(130, 269);
+            chkbx_TrickRoom.Location = new Point(188, 348);
             chkbx_TrickRoom.Name = "chkbx_TrickRoom";
             chkbx_TrickRoom.Size = new Size(105, 24);
             chkbx_TrickRoom.TabIndex = 21;
@@ -292,11 +310,11 @@
             dgv_Tracker.AllowUserToAddRows = false;
             dgv_Tracker.BackgroundColor = SystemColors.ControlLightLight;
             dgv_Tracker.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_Tracker.Columns.AddRange(new DataGridViewColumn[] { dgch_Pokemon, dgch_Initiative, dgch_SuccessesNeeded, dgch_Dexterity, dgch_Evaded, dgch_Clashed });
-            dgv_Tracker.Location = new Point(277, 3);
+            dgv_Tracker.Columns.AddRange(new DataGridViewColumn[] { dgch_Pokemon, dgch_Initiative, dgch_SuccessesNeeded, dgch_Dexterity, dvch_Evaded, dvch_Clashed });
+            dgv_Tracker.Location = new Point(299, 3);
             dgv_Tracker.Name = "dgv_Tracker";
             dgv_Tracker.RowHeadersWidth = 51;
-            dgv_Tracker.Size = new Size(743, 257);
+            dgv_Tracker.Size = new Size(721, 391);
             dgv_Tracker.TabIndex = 22;
             dgv_Tracker.CellMouseClick += dgv_Tracker_CellMouseClick;
             // 
@@ -332,36 +350,87 @@
             dgch_Dexterity.ReadOnly = true;
             dgch_Dexterity.Width = 40;
             // 
-            // dgch_Evaded
+            // dvch_Evaded
             // 
-            dgch_Evaded.HeaderText = "Evaded?";
-            dgch_Evaded.MinimumWidth = 6;
-            dgch_Evaded.Name = "dgch_Evaded";
-            dgch_Evaded.Width = 70;
+            dvch_Evaded.HeaderText = "Evaded?";
+            dvch_Evaded.MinimumWidth = 6;
+            dvch_Evaded.Name = "dvch_Evaded";
+            dvch_Evaded.Width = 75;
             // 
-            // dgch_Clashed
+            // dvch_Clashed
             // 
-            dgch_Clashed.HeaderText = "Clashed?";
-            dgch_Clashed.MinimumWidth = 6;
-            dgch_Clashed.Name = "dgch_Clashed";
-            dgch_Clashed.Width = 70;
+            dvch_Clashed.HeaderText = "Clashed?";
+            dvch_Clashed.MinimumWidth = 6;
+            dvch_Clashed.Name = "dvch_Clashed";
+            dvch_Clashed.Width = 75;
             // 
-            // btn_pdb
+            // btn_Clash
             // 
-            btn_pdb.BackColor = SystemColors.ActiveBorder;
-            btn_pdb.Location = new Point(3, 112);
-            btn_pdb.Name = "btn_pdb";
-            btn_pdb.Size = new Size(108, 29);
-            btn_pdb.TabIndex = 3;
-            btn_pdb.Text = "PokemonDB";
-            btn_pdb.UseVisualStyleBackColor = false;
-            btn_pdb.Click += btn_pdb_Click;
+            btn_Clash.BackColor = Color.OrangeRed;
+            btn_Clash.Location = new Point(12, 257);
+            btn_Clash.Name = "btn_Clash";
+            btn_Clash.Size = new Size(204, 37);
+            btn_Clash.TabIndex = 23;
+            btn_Clash.Text = "Clash";
+            btn_Clash.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btn_Clash.UseVisualStyleBackColor = false;
+            btn_Clash.Click += btn_Clash_Click;
+            // 
+            // btn_Evade
+            // 
+            btn_Evade.BackColor = Color.LightSeaGreen;
+            btn_Evade.Location = new Point(13, 300);
+            btn_Evade.Name = "btn_Evade";
+            btn_Evade.Size = new Size(203, 37);
+            btn_Evade.TabIndex = 24;
+            btn_Evade.Text = "Evade";
+            btn_Evade.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btn_Evade.UseVisualStyleBackColor = false;
+            btn_Evade.Click += btn_Evade_Click;
+            // 
+            // btn_MoveUndo
+            // 
+            btn_MoveUndo.BackColor = SystemColors.AppWorkspace;
+            btn_MoveUndo.Location = new Point(234, 218);
+            btn_MoveUndo.Name = "btn_MoveUndo";
+            btn_MoveUndo.Size = new Size(36, 29);
+            btn_MoveUndo.TabIndex = 25;
+            btn_MoveUndo.Text = "↶";
+            btn_MoveUndo.UseVisualStyleBackColor = false;
+            btn_MoveUndo.Click += btn_MoveUndo_Click;
+            // 
+            // btn_ClashUndo
+            // 
+            btn_ClashUndo.BackColor = SystemColors.AppWorkspace;
+            btn_ClashUndo.Location = new Point(234, 261);
+            btn_ClashUndo.Name = "btn_ClashUndo";
+            btn_ClashUndo.Size = new Size(36, 29);
+            btn_ClashUndo.TabIndex = 26;
+            btn_ClashUndo.Text = "↶";
+            btn_ClashUndo.UseVisualStyleBackColor = false;
+            btn_ClashUndo.Click += btn_ClashUndo_Click;
+            // 
+            // btn_EvadeUndo
+            // 
+            btn_EvadeUndo.BackColor = SystemColors.AppWorkspace;
+            btn_EvadeUndo.Location = new Point(234, 304);
+            btn_EvadeUndo.Name = "btn_EvadeUndo";
+            btn_EvadeUndo.Size = new Size(36, 29);
+            btn_EvadeUndo.TabIndex = 27;
+            btn_EvadeUndo.Text = "↶";
+            btn_EvadeUndo.UseVisualStyleBackColor = false;
+            btn_EvadeUndo.Click += btn_EvadeUndo_Click;
             // 
             // FrontEnd
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1032, 500);
+            ClientSize = new Size(1032, 636);
+            Controls.Add(btn_EvadeUndo);
+            Controls.Add(btn_ClashUndo);
+            Controls.Add(btn_MoveUndo);
+            Controls.Add(btn_Evade);
+            Controls.Add(btn_Clash);
             Controls.Add(dgv_Tracker);
             Controls.Add(chkbx_TrickRoom);
             Controls.Add(btn_MoveDown);
@@ -376,7 +445,7 @@
             Controls.Add(panelTurn);
             Controls.Add(btn_AddPokemon);
             Controls.Add(btn_Faint);
-            Controls.Add(btn_UseAction);
+            Controls.Add(btn_UseMove);
             Controls.Add(btn_NewRound);
             Controls.Add(txtbx_InitiativeInput);
             Controls.Add(lbl_Initiative);
@@ -399,7 +468,7 @@
         private Label lbl_Initiative;
         private TextBox txtbx_InitiativeInput;
         private Button btn_NewRound;
-        private Button btn_UseAction;
+        private Button btn_UseMove;
         private Button btn_Faint;
         private Button btn_AddPokemon;
         private Panel panelTurn;
@@ -416,13 +485,18 @@
         private Button btn_Help;
         private CheckBox chkbx_TrickRoom;
         private DataGridView dgv_Tracker;
+        private Button btn_Bulbapedia;
+        private Button btn_pdb;
+        private Button btn_Clash;
+        private Button btn_Evade;
+        private Button btn_MoveUndo;
+        private Button btn_ClashUndo;
+        private Button btn_EvadeUndo;
         private DataGridViewTextBoxColumn dgch_Pokemon;
         private DataGridViewTextBoxColumn dgch_Initiative;
         private DataGridViewTextBoxColumn dgch_SuccessesNeeded;
         private DataGridViewTextBoxColumn dgch_Dexterity;
-        private DataGridViewCheckBoxColumn dgch_Evaded;
-        private DataGridViewCheckBoxColumn dgch_Clashed;
-        private Button btn_Bulbapedia;
-        private Button btn_pdb;
+        private DataGridViewTextBoxColumn dvch_Evaded;
+        private DataGridViewTextBoxColumn dvch_Clashed;
     }
 }
